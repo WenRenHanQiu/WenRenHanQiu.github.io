@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>19,传统for和增强for的区别 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="增强for相比于传统for的优点是更容易遍历，在仅遍历集合元素的情况下使用增强for循环效率更高，但是增强for循环无法使用循环变量对集合元素进行修改，而传统for循环却可以。传统for循环格式：for(int i=0;i&amp;lt;n;i++){ //注意：n为与i相同类型的变量或常量//循环体}增强for循环格式：for(int i:n){ //注意：n为集合或数组名；i每次循环时的值为n中元素的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="19,传统for和增强for的区别">
+<meta property="og:url" content="http://yoursite.com/2018/07/21/19-传统for和增强for的区别/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="增强for相比于传统for的优点是更容易遍历，在仅遍历集合元素的情况下使用增强for循环效率更高，但是增强for循环无法使用循环变量对集合元素进行修改，而传统for循环却可以。传统for循环格式：for(int i=0;i&amp;lt;n;i++){ //注意：n为与i相同类型的变量或常量//循环体}增强for循环格式：for(int i:n){ //注意：n为集合或数组名；i每次循环时的值为n中元素的">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-21T06:36:22.497Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="19,传统for和增强for的区别">
+<meta name="twitter:description" content="增强for相比于传统for的优点是更容易遍历，在仅遍历集合元素的情况下使用增强for循环效率更高，但是增强for循环无法使用循环变量对集合元素进行修改，而传统for循环却可以。传统for循环格式：for(int i=0;i&amp;lt;n;i++){ //注意：n为与i相同类型的变量或常量//循环体}增强for循环格式：for(int i:n){ //注意：n为集合或数组名；i每次循环时的值为n中元素的">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-19-传统for和增强for的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/19-传统for和增强for的区别/" class="article-date">
+  <time datetime="2018-07-21T06:26:22.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      19,传统for和增强for的区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>增强for相比于传统for的优点是更容易遍历，在仅遍历集合元素的情况下使用增强for循环效率更高，但是增强for循环无法使用循环变<br>量对集合元素进行修改，而传统for循环却可以。<br>传统for循环格式：<br>for(int i=0;i&lt;n;i++){ //注意：n为与i相同类型的变量或常量<br>//循环体<br>}<br>增强for循环格式：<br>for(int i:n){ //注意：n为集合或数组名；i每次循环时的值为n中元素的值，要求i与n中元素类型相同<br>//循环体 //由于集合中存入的元素类型都会被系统默认为Object类型，故若要以特定类型遍历集合需要使用泛型<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/19-传统for和增强for的区别/" data-id="cjjv1sa08000bn4v6wyo46s9q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/21/20-Collection和Collections的区别/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          20,Collection和Collections的区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/21/18-不借助第三个变量，互换两个变量/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">18,不借助第三个变量，互换两个变量</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/30-this和super/">30,this和super</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/29-递归/">29,递归</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/28-迭代器/">28,迭代器</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>java各种集合的扩容机制 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先，java中并非所有集合均有扩容机制（如LinkedList因其底层结构为链表，扩容时会不断建立新节点），只有部分集合拥有系统的扩容机制，且不同的集合的扩容机制也不同，接下来对于集合的各种扩容机制进行介绍：1，ArrayList：因其底层结构为数组，如果像LinkedList一样逐个开辟存储空间效率会很低，故其设立了特有的扩容机制，下面是其源码：private static final int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java各种集合的扩容机制">
+<meta property="og:url" content="http://yoursite.com/2018/07/21/java各种集合的扩容机制/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="首先，java中并非所有集合均有扩容机制（如LinkedList因其底层结构为链表，扩容时会不断建立新节点），只有部分集合拥有系统的扩容机制，且不同的集合的扩容机制也不同，接下来对于集合的各种扩容机制进行介绍：1，ArrayList：因其底层结构为数组，如果像LinkedList一样逐个开辟存储空间效率会很低，故其设立了特有的扩容机制，下面是其源码：private static final int">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-21T06:43:18.757Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java各种集合的扩容机制">
+<meta name="twitter:description" content="首先，java中并非所有集合均有扩容机制（如LinkedList因其底层结构为链表，扩容时会不断建立新节点），只有部分集合拥有系统的扩容机制，且不同的集合的扩容机制也不同，接下来对于集合的各种扩容机制进行介绍：1，ArrayList：因其底层结构为数组，如果像LinkedList一样逐个开辟存储空间效率会很低，故其设立了特有的扩容机制，下面是其源码：private static final int">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java各种集合的扩容机制" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/java各种集合的扩容机制/" class="article-date">
+  <time datetime="2018-07-21T06:42:32.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java各种集合的扩容机制
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，java中并非所有集合均有扩容机制（如LinkedList因其底层结构为链表，扩容时会不断建立新节点），只有部分集合拥有系统的扩容机制，且不同的集合的扩容机制也不同，接下来对于集合的各种扩容机制进行介绍：<br>1，ArrayList：<br>因其底层结构为数组，如果像LinkedList一样逐个开辟存储空间效率会很低，故其设立了特有的扩容机制，下面是其源码：<br>private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;<br>private void grow(int minCapacity) {<br>    // overflow-conscious code<br>    int oldCapacity = elementData.length;<br>    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);<br>    if (newCapacity - minCapacity &lt; 0)<br>        newCapacity = minCapacity;<br>    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)<br>        newCapacity = hugeCapacity(minCapacity);<br>    // minCapacity is usually close to size, so this is a win:<br>    elementData = Arrays.copyOf(elementData, newCapacity);<br>}</p>
+<p>private static int hugeCapacity(int minCapacity) {<br>    if (minCapacity &lt; 0) // overflow<br>        throw new OutOfMemoryError();<br>    return (minCapacity &gt; MAX_ARRAY_SIZE) ?<br>        Integer.MAX_VALUE :<br>        MAX_ARRAY_SIZE;<br>}<br>附：Integer.MAX_VALUE的定义：Integer.MAX_VALUE<br>注：ArrayList中两个属性与其容量相关：size和elementData.length，size代表当前集合中的元素个数，而elementData.length则代表当前集合的真正存储空间，而扩容就是当真正存储空间无法存储集合中所有的元素时，开辟新的存储空间再将原存储空间的数据添加进去。<br>从源代码中我们可以看出，在存储空间不足时，首先ArrayList会将其容量扩大至原先的1.5倍，再判断新的存储空间容量是否足够，若足够，则ArrayList的容量就是原先的1.5倍；若不够，则将其容量变为能够存储所有元素的最小存储空间，再判断当前容量（即刚好能够存储所有元素的空间）是否大于ArrayList的允许的最大存储空间（即MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8），若大于，则将容量变为Integer.MAX_VALUE</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/java各种集合的扩容机制/" data-id="cjjv1sa120011n4v6ces8rurk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/21/java的引用传递和值传递以及String常量池/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java的引用传递和值传递以及String常量池</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/30-this和super/">30,this和super</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/29-递归/">29,递归</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/28-迭代器/">28,迭代器</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>24,异常及异常的注意事项 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用异常，是为了处理在运行时可能出现的错误，try块测试可能出异常的代码，catch块在捕获异常后进行处理，使用户可以自己控制异常的处理，而且用户可以自行确定捕获的异常的类型和范围，使系统不必去检查是哪个特定错误；而且，一个try块可以对应多个catch块，使用户可以对于异常的捕获和处理更为精确，不过也因此需要注意：try{}catch(Exception e){}catch(Exception">
+<meta property="og:type" content="article">
+<meta property="og:title" content="24,异常及异常的注意事项">
+<meta property="og:url" content="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用异常，是为了处理在运行时可能出现的错误，try块测试可能出异常的代码，catch块在捕获异常后进行处理，使用户可以自己控制异常的处理，而且用户可以自行确定捕获的异常的类型和范围，使系统不必去检查是哪个特定错误；而且，一个try块可以对应多个catch块，使用户可以对于异常的捕获和处理更为精确，不过也因此需要注意：try{}catch(Exception e){}catch(Exception">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-21T06:35:10.547Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="24,异常及异常的注意事项">
+<meta name="twitter:description" content="使用异常，是为了处理在运行时可能出现的错误，try块测试可能出异常的代码，catch块在捕获异常后进行处理，使用户可以自己控制异常的处理，而且用户可以自行确定捕获的异常的类型和范围，使系统不必去检查是哪个特定错误；而且，一个try块可以对应多个catch块，使用户可以对于异常的捕获和处理更为精确，不过也因此需要注意：try{}catch(Exception e){}catch(Exception">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-24-异常及异常的注意事项" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/24-异常及异常的注意事项/" class="article-date">
+  <time datetime="2018-07-21T06:29:10.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      24,异常及异常的注意事项
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用异常，是为了处理在运行时可能出现的错误，try块测试可能出异常的代码，catch块在捕获异常后进行处理，使用户可以自己控制异常的处理，<br>而且用户可以自行确定捕获的异常的类型和范围，使系统不必去检查是哪个特定错误；而且，一个try块可以对应多个catch块，使用户可以对于异常<br>的捕获和处理更为精确，不过也因此需要注意：<br>try{}<br>catch(Exception e){}<br>catch(Exception e){}<br>catch语句是按顺序执行的，所以catch中的异常参数的类型范围需要从小到大。<br>使用异常，还可以使用户更便捷地记录异常，以便用户对异常进行分类和处理。<br>除了已有的异常类，还可以自定义异常类，不过必须继承已有的异常类。<br>异常机制包含异常说明，可以在不泄露源代码的前提下对于发生的异常进行说明。<br>在try块和catch块之后还可以添加finally块，在finally块中的语句在执行完try和catch块之后必然会被执行，无论是否有异常抛出（即使catch或<br>try块内含有return语句，finally块也会在return语句执行前被执行）。<br>对于异常的处理，有两种方式，第一种是直接处理，即对于产生的问题作出相应地处理；还有一种方式是将该异常向上抛出，但是使用向上抛出时需<br>要注意，当异常已经出现在主方法时，不能再向上抛出，因为主方法已经是最顶层了。<br>附：java中常见的异常类型：NullPointerException 空指针异常 ClassNotFoundException 指定类不存在异常 NumberFormatException 字符串转数<br>字异常 IndexOutOfBoundsException 数组下标越界异常 FileNotFoundException 文件未找到异常 ClassCastException 数据类型转换异常 Illegal<br>ArgumentException 方法参数错误异常 IllegalAccessException 无访问权限异常 ArithmeticException 数学运算异常。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/" data-id="cjjv1sa0i000in4v62n2ea5lt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/21/25-泛型/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          25,泛型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/21/23-throw和throws/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">23,throw和throws</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/30-this和super/">30,this和super</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/29-递归/">29,递归</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/28-迭代器/">28,迭代器</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-12-数组和集合的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/12-数组和集合的区别/" class="article-date">
+  <time datetime="2018-07-21T06:20:58.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/12-数组和集合的区别/">12,数组和集合的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数组是一种数据结构，也是部分集合的底层数据结构，但是其本身不像集合一样自带方法（比如查询长度，自动扩容等），数组的优点是<br>便于查找，但不便于增删；集合多种多样，底层数据结构有数组也有链表，可以根据不同的需要进行选择，而且集合拥有多种方法，便于使<br>用，部分集合是线程安全的，可以确保信息安全。集合和数组的最大区别是数组的大小必须在定义时就确定且不可更改，但是集合的大小无<br>需在定义时确定，其长度为默认长度，在存储空间不足时集合还可以自动扩容，非常方便。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/12-数组和集合的区别/" data-id="cjjv1sa080007n4v6agmkv504" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-11-同步方法与同步代码块的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/11-同步方法与同步代码块的区别/" class="article-date">
+  <time datetime="2018-07-21T06:20:36.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/11-同步方法与同步代码块的区别/">11,同步方法与同步代码块的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>java中实现线程同步的手段即使用同步方法或同步代码块。同步方法和同步代码块即为以synchronized关键字修饰的方法和代码块。使用该关键字修<br>饰的方法或代码块在同一时间内只能由一个线程调用，若此时其他线程要调用该方法或代码块，该线程会被阻塞。<br>而二者的不同之处在于，上锁的部分不同，同步方法是对某方法上锁，而同步代码块是对于某代码块上锁，相对于同步方法而言，同步代码块造成阻<br>塞的可能性更小。比如说，在某线程调用同步方法时，其他要调用该同步方法的线程均会阻塞，但是，若只是将方法中的部分代码块上锁，则其他要<br>调用该方法的线程仍然可以调用该方法中的非同步代码块，从而减少了阻塞。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/11-同步方法与同步代码块的区别/" data-id="cjjv1sa080003n4v673e04gz6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10-局部变量和成员变量的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/10-局部变量和成员变量的区别/" class="article-date">
+  <time datetime="2018-07-21T06:20:07.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/10-局部变量和成员变量的区别/">10,局部变量和成员变量的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>成员变量：在类体里面定义的变量叫做成员变量；如果在变量有static关键字修饰，就叫作静态变量或类变量（无需实例化就有存储空间，依托于类<br>）；如果该变量没有static关键字修饰，就叫作非静态变量或实例变量（需实例化对象才能拥有存储空间）；<br>局部变量:方法（包括主方法）内定义的变量、形参、代码块中定义的变量都叫做局部变量；<br>另外，成员变量可以不显式初始化，它们可以由系统设定默认值；局部变量没有默认值，所以必须设定初始赋值（否则会爆出空指针异常）。<br>还有，在内存中的位置也不一样。成员变量在所在类被实例化后，存在堆内存中；局部变量在所在方法调用时，存在栈内存空间中。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/10-局部变量和成员变量的区别/" data-id="cjjv1s9zy0002n4v6oilgmqii" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-9-集合体系" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/9-集合体系/" class="article-date">
+  <time datetime="2018-07-21T06:19:24.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/9-集合体系/">9,集合体系</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>所有集合按照存储结构可以分为两大类：继承了Collection接口的单列集合类，和继承了Map接口的双列集合类；其中前者的元素只含有value（值）<br>，后者的元素为键值对，含有value和key。<br>以下列举一些常用的集合类。<br>Collection接口含有两个子接口List和Set；其中List接口派生了ArrayList类（数组结构），LinkedList类（链表结构）和Vector类（数组结构），<br>Set接口派生了HashSet类（哈希表结构），TreeSet类（红黑树结构）。<br>Map接口派生了HashMap类（哈希表结构），TreeMap类（红黑树结构）和HashTable类（数组和链表结构）。<br>以上所有集合类中只有Vector类和HashTable类是线程安全的，底层数据结构相同的情况下，一般线程不安全的集合类效率要比线程安全的集合类高<br>。<br>所有集合类均可动态增长和缩减，集合动态增长的原因：类封装了一个动态再分配的Object[]数组，使每个类对象均含有一个名为capacity的属性，<br>该属性表示并控制数组的长度，比如：当向ArrayList内添加元素时，该属性值便会增加。与数组的length不同，集合含有size和Capacity两个属性<br>，数组的length属性即为数组定义时的大小，与数组中的对象个数无关，但ArrayList的size为集合内对象的个数，Capacity为集合的存储空间大小<br>。Capacity为动态增长和缩减的，其增长规律为：int newCapacity=（oldCapacity*3）/2+1。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/9-集合体系/" data-id="cjjv1sa12000zn4v66cne6jy1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-8-IO体系" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/8-IO体系/" class="article-date">
+  <time datetime="2018-07-21T06:19:10.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/8-IO体系/">8,IO体系</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>IO体系：主要方法为输入输出流方法，输入流方法操作对象为文件（也可创建文件后再输入），输出流方法的操作对象也是文件，输出显<br>示文件内容；而输入输出流又分为字符输入（出）流和字节输入（出）流，即按照字符或字节向文件内进行输入或从文件内读取。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/8-IO体系/" data-id="cjjv1sa12000tn4v6xkc308wg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-7-对匿名内部类的理解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/7-对匿名内部类的理解/" class="article-date">
+  <time datetime="2018-07-21T06:18:28.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/7-对匿名内部类的理解/">7,对匿名内部类的理解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>匿名内部类的作用是便捷地重写方法（对实体类）或便捷地构造抽象类或接口的对象（对于抽象类和接口）。<br>匿名内部类通常情况下的使用方法是在调用构造方法调用对象时，进行方法的重写或抽象方法的定义。<br>其实重写方法或定义抽象方法后，就已经定义了一个继承了原类的新类（或实现了原接口的新类），即匿名内部类，但是不给该类命名（为了操作便<br>捷，简化代码），因此该匿名内部类也只能使用一次。因此，匿名内部类一般用于只使用一次的情况，若需使用多次，则一般直接创建新的类。<br>格式：原类名 对象名=new 原类名（）{<br>//重写或定义方法<br>}; //其实该大括号内即为匿名内部类的类体<br>附：直接于构造方法中定义匿名内部类是一种常见的做法，但除此之外还可以在其他类的方法中将匿名内部类对象作为形参，然后再在主方法中调用<br>该方法时在其参数列表中进行匿名内部类的构造。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/7-对匿名内部类的理解/" data-id="cjjv1sa0s000sn4v6eavinax1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-6-wait-和sleep-的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/6-wait-和sleep-的区别/" class="article-date">
+  <time datetime="2018-07-21T06:18:06.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/6-wait-和sleep-的区别/">6,wait()和sleep()的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>sleep()方法：属于Thread类，故必须对继承了Thread类的线程使用，以数字作为参数，代表等待的毫秒数，使线程在规定的时间内进入阻塞状态，<br>期间线程的锁不释放，且notify()或notifyAll()无法将线程唤醒。<br>wait()方法：属于Object类，对于两种方式创建的线程均可使用，有两种使用方式：第一种的作用和sleep()方法相似，但是期间线程的锁释放，而<br>且可以被notify()或notifyAll()唤醒；第二种方式无参数，此时线程将会无线地等待下去，除非被notify()或notifyAll()唤醒。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/6-wait-和sleep-的区别/" data-id="cjjv1sa0s000pn4v6hpa4crri" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-5-什么是多态，多态的好处和弊端" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/5-什么是多态，多态的好处和弊端/" class="article-date">
+  <time datetime="2018-07-21T06:15:04.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/5-什么是多态，多态的好处和弊端/">5,什么是多态，多态的好处和弊端</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单来说，多态即为同一个方法面对不同的输入时能产生不同的操作或输出。多态的优点是减少了代码量，以一个方法实现了多种功能；<br>缺点是在调用时易因此而造成调用错误或二义性。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/5-什么是多态，多态的好处和弊端/" data-id="cjjv1sa0s000on4v6j8j8q82h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-4-final-finally-finalize的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/4-final-finally-finalize的区别/" class="article-date">
+  <time datetime="2018-07-21T06:14:27.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/4-final-finally-finalize的区别/">4,final,finally,finalize的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>final为修饰常量和不可重写方法的关键字；finally为try-catch-finally结构中的部分，其中无论try块内是否产生异常，finally块内<br>的代码均会被执行；finalize：Object类中的方法，其作用为回收无法被java中垃圾回收机制回收的对象所占用的存储空间。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/4-final-finally-finalize的区别/" data-id="cjjv1sa0s000qn4v6qpin0sca" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-3-类与类，类与接口，接口与接口的关系" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/3-类与类，类与接口，接口与接口的关系/" class="article-date">
+  <time datetime="2018-07-21T06:13:34.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/3-类与类，类与接口，接口与接口的关系/">3,类与类，类与接口，接口与接口的关系</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>类与类之间可以有继承关系，子类的构造方法可以用于父类对象，类和类之间仅能进行单继承；类和接口：一个类能继承多个接口，接<br>口中的所有方法均不能含有方法体，接口可以继承接口，但不能继承类。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/3-类与类，类与接口，接口与接口的关系/" data-id="cjjv1sa0s000ln4v6vd21e0dv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/30-this和super/">30,this和super</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/29-递归/">29,递归</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/28-迭代器/">28,迭代器</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -62,10 +62,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-抽奖问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java各种集合的扩容机制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/21/抽奖问题/" class="article-date">
-  <time datetime="2018-07-21T03:08:53.000Z" itemprop="datePublished">2018-07-21</time>
+    <a href="/2018/07/21/java各种集合的扩容机制/" class="article-date">
+  <time datetime="2018-07-21T06:42:32.000Z" itemprop="datePublished">2018-07-21</time>
 </a>
     
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/抽奖问题/">抽奖问题</a>
+      <a class="article-title" href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
     </h1>
   
 
@@ -84,16 +84,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>抽奖问题：简单来说就是已知奖券种类数（m）和买的奖券张数（n），奖券可重复，集齐所有种类奖券即中奖，求中奖的概率。<br>解决该题的思想是动态规划，设已买奖券数为i，奖券种类数为m，已买奖券中种类数为j，中奖概率为f（i，j），则中奖概率的递推公式为：<br>f（i，j）=f（i-1，j）j/m+f（i-1，j-1）（m-j+1）/m，意义为：买i张奖券集齐j种奖券的概率为：买i-1张奖券集齐j种奖券的概率乘以j/m<br>，加买i-1张奖券集齐j-1种奖券的概率乘以（m-j+1）/m，即买i张奖券集齐j种奖券的概率等于买第i张奖券集齐第j种奖券的概率，加买第i张<br>奖券是之前已经有的j种奖券（即重复）的概率。则当j（已集齐的奖券数）等于m（奖券种类总数）时，f（i，j）即为所求解。<br>代码如下：</p>
-<p>#include</p>
-<p>#include</p>
-<p>#include</p>
-<p>#include<br>using namespace std;<br>int n,m;<br>double d[25][25];<br>int main()<br>{<br>//freopen(“in.txt”,”r”,stdin);<br>while(scanf(“%d%d”,&amp;m,&amp;n)==2) //m为奖券种类数，n为购买奖券张数 while的判定条件保证了每一次从输入的（int型）值中每两个进行计算中奖概率<br>{<br>d[0][0]=1;<br>for(int i=1;i&lt;=n;i++)<br>for(int j=0;j&lt;=m&amp;&amp;j&lt;=i;j++)<br>{<br>d[i][j]=0;<br>d[i][j]+=d[i-1]<a href="(double">j</a>j/m); //买第i张奖券未获得新种类奖券的概率<br>if(j) d[i][j]+=d[i-1]<a href="(double">j-1</a>(m-j+1)/m); //买第i张奖券获得新种类奖券的概率<br>}<br>printf(“%.4lf\n”,d[n][m]);<br>}<br>return 0;<br>}<br>Q：为什么买第i张奖券获得新奖券的概率与未获得新奖券的概率之和不是1呢？<br>A：因为本题目求的是买n张奖券中奖（即及其m种图案）的概率，而本题的解题思路是：先求买1张奖券中奖的概率，再求买2张奖券中奖的概率，<br>直到求出买n张奖券中奖的概率；其中每一次计算概率的方式是：计算买i张奖券集齐j种图案的概率是买第i张奖券获得新图案和未获得新图案<br>的概率之和，因为买完第i张奖券后集齐的奖券种类数为j，故计算买第i张奖券获得新图案的概率是(m-j+1)/m（在买第i张奖券之前已获得j-1<br>种奖券），否则概率是j/m（在买第i张奖券之前已获得j种奖券）。故二者之和不为1。</p>
+        <p>首先，java中并非所有集合均有扩容机制（如LinkedList因其底层结构为链表，扩容时会不断建立新节点），只有部分集合拥有系统的扩容机制，且不同的集合的扩容机制也不同，接下来对于集合的各种扩容机制进行介绍：<br>1，ArrayList：<br>因其底层结构为数组，如果像LinkedList一样逐个开辟存储空间效率会很低，故其设立了特有的扩容机制，下面是其源码：<br>private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;<br>private void grow(int minCapacity) {<br>    // overflow-conscious code<br>    int oldCapacity = elementData.length;<br>    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);<br>    if (newCapacity - minCapacity &lt; 0)<br>        newCapacity = minCapacity;<br>    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)<br>        newCapacity = hugeCapacity(minCapacity);<br>    // minCapacity is usually close to size, so this is a win:<br>    elementData = Arrays.copyOf(elementData, newCapacity);<br>}</p>
+<p>private static int hugeCapacity(int minCapacity) {<br>    if (minCapacity &lt; 0) // overflow<br>        throw new OutOfMemoryError();<br>    return (minCapacity &gt; MAX_ARRAY_SIZE) ?<br>        Integer.MAX_VALUE :<br>        MAX_ARRAY_SIZE;<br>}<br>附：Integer.MAX_VALUE的定义：Integer.MAX_VALUE<br>注：ArrayList中两个属性与其容量相关：size和elementData.length，size代表当前集合中的元素个数，而elementData.length则代表当前集合的真正存储空间，而扩容就是当真正存储空间无法存储集合中所有的元素时，开辟新的存储空间再将原存储空间的数据添加进去。<br>从源代码中我们可以看出，在存储空间不足时，首先ArrayList会将其容量扩大至原先的1.5倍，再判断新的存储空间容量是否足够，若足够，则ArrayList的容量就是原先的1.5倍；若不够，则将其容量变为能够存储所有元素的最小存储空间，再判断当前容量（即刚好能够存储所有元素的空间）是否大于ArrayList的允许的最大存储空间（即MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8），若大于，则将容量变为Integer.MAX_VALUE</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/抽奖问题/" data-id="cjjuu4k6t0005lov6q11n0op6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/java各种集合的扩容机制/" data-id="cjjv1sa120011n4v6ces8rurk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -103,10 +100,10 @@
 
 
   
-    <article id="post-原来scanf函数还有返回值" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java的引用传递和值传递以及String常量池" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/21/原来scanf函数还有返回值/" class="article-date">
-  <time datetime="2018-07-21T03:07:33.000Z" itemprop="datePublished">2018-07-21</time>
+    <a href="/2018/07/21/java的引用传递和值传递以及String常量池/" class="article-date">
+  <time datetime="2018-07-21T06:41:45.000Z" itemprop="datePublished">2018-07-21</time>
 </a>
     
   </div>
@@ -117,7 +114,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/原来scanf函数还有返回值/">原来scanf函数还有返回值</a>
+      <a class="article-title" href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
     </h1>
   
 
@@ -125,12 +122,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>scanf是c中我们非常熟悉的函数，但是今天我在解读某算法代码时发现它竟然还有返回值。经过我的测试，发现其返回值为int型，其值的意义为：按照scanf内定义的输入类型正确地输入数据的个数。</p>
+        <p>首先，从整体来说，因为基本数据类型变量所占据的存储空间所存储的是需要存储的实际值，而引用数据类型所存储的是指向需要存储实际值的存<br>储空间的地址，所以基本数据类型之间使用值传递，引用数据类型之间使用引用传递，但String类型和数组是例外。<br>先说明一下普通的值传递和引用传递原理：使用值传递的形参和实参均直接存储实际需要存储或修改的值，而形参和实参占用的是两份不同的存储<br>空间，且形参的存储空间在其所在的方法执行完毕后会被释放，故而只是形参存储的值被改变后其存储空间又被释放而已，实参存储的值不会改变<br>；而使用引用传递的形参和实参内存储的是需要存储或修改的值的存储空间的地址，即形参和实参虽然各自使用不同的存储空间，但均指向同一份<br>存储了实际值的存储空间，故而在方法执行完毕之后，二者所指向的同一份存储空间所存储的值也被改变了，即使形参存储空间被释放，实参所存<br>储（指向）的值也被改变了。<br>但是，String类型本身含有常量池，即含有所有字符串的池，常量池中的存储的所有值不会被改变，变量只能改变指向方向，所以除非使用new指令<br>开辟额外的存储空间，否则的话String类型变量会指向常量池中与存储值相同的，本来就存在的那份存储空间。而在方法执行完毕后，只是形参的<br>指向（存储的地址）改变了，故而实参所存储（指向）的值仍未改变。<br>数组实参传递给形参的是数组名，即指向数组实际存储值存储空间的地址，故其原理和普通引用传递是相同的，所以无论是引用数据类型数组还是<br>基本数据类型数组均使用引用传递。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/原来scanf函数还有返回值/" data-id="cjjuu4k6n0002lov6sj6e8gok" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/java的引用传递和值传递以及String常量池/" data-id="cjjv1sa12000wn4v6wn2fcjmu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -140,10 +137,10 @@
 
 
   
-    <article id="post-java集合解读" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-30-this和super" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/21/java集合解读/" class="article-date">
-  <time datetime="2018-07-21T03:06:32.000Z" itemprop="datePublished">2018-07-21</time>
+    <a href="/2018/07/21/30-this和super/" class="article-date">
+  <time datetime="2018-07-21T06:32:01.000Z" itemprop="datePublished">2018-07-21</time>
 </a>
     
   </div>
@@ -154,7 +151,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/java集合解读/">java集合解读</a>
+      <a class="article-title" href="/2018/07/21/30-this和super/">30,this和super</a>
     </h1>
   
 
@@ -162,12 +159,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>容器大体上分为：数组（固定大小），集合（大小动态变化）<br>集合大体上可分为：Collection（一个独立元素的序列，即仅有值），Map（一组成对的“键值对”对象，允许你使用键来查找值，即每一个对象均为“键值对”）<br>集合：<br>一，Collection：<br>1，ArrayList：<br>特点：ArrayList可以动态增长和缩减（所有集合的共性，也是集合相比于数组的最大区别），底层为数组，线程不安全。<br>动态增长与缩减的原因：该类封装了一个动态再分配的Object[]数组，使每个类对象均含有一个名为capacity的属性，该属性表示并控制数组的长度，比如：当向ArrayList内添加元素时，该属性值便会增加。<br>与数组的length不同，ArrayList含有size和Capacity两个属性，数组的length属性即为数组定义时的大小，与数组中的对象个数无关，但ArrayList的size为集合内对象的个数，Capacity为集合的存储空间大小。<br>Capacity为动态增长和缩减的，其增长规律为：int newCapacity=（oldCapacity*3）/2+1;</p>
+        <p>this关键字指当前对象，即当前调用该方法的对象；super关键字在子类调用父类的方法时使用，当子类重写父类方法时，子类方法与父<br>类方法同名，为避免二义性，子类在调用父类方法时以super方法替代。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/java集合解读/" data-id="cjjuu4k6p0003lov63ziz2bzv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/30-this和super/" data-id="cjjv1sa0s000nn4v6wfia0vev" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,10 +174,10 @@
 
 
   
-    <article id="post-快速排序程序分析" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-29-递归" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/21/快速排序程序分析/" class="article-date">
-  <time datetime="2018-07-21T03:05:22.000Z" itemprop="datePublished">2018-07-21</time>
+    <a href="/2018/07/21/29-递归/" class="article-date">
+  <time datetime="2018-07-21T06:31:37.000Z" itemprop="datePublished">2018-07-21</time>
 </a>
     
   </div>
@@ -191,7 +188,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/快速排序程序分析/">快速排序程序分析</a>
+      <a class="article-title" href="/2018/07/21/29-递归/">29,递归</a>
     </h1>
   
 
@@ -199,12 +196,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>package com.google.javase.zs;<br>//快速排序<br>public class QuickSore{<br>public static void quickSore(int[] data, int left, int right) { //该方法的递归即为分治法<br>int base;<br>if(right&gt;left) { //if内的条件即为递归中止条件<br>base=sort(data,left,right);<br>quickSore(data,left,base-1);//小于基准<br>quickSore(data,base+1,right);//大于基准<br>}<br>}<br>public static int sort(int[] data, int left, int right) { //sort函数即为在一个基准下的排序<br>int zj=data[left];<br>int base=left,zjz; //普通快排为选取数组第一个元素的值为基准值<br>data[left]=data[right]; //此两步将原数组的首元素与尾元素的值互换<br>data[right]=zj;<br>for(int i=left;i&lt;right;++i) {<br>if(data[right]&gt;data[i]) { //该if语句等价于以末尾值为基准值进行快排<br>zjz=data[base];<br>data[base]=data[i];<br>data[i]=zjz;<br>base++;<br>}<br>}<br>zjz=data[base]; //此处zjz的值为数组中小于等于末尾值的所有值中序号最大的元素的值<br>data[base]=data[right];<br>data[right]=zjz; //此处交换data【base】和data【right】的值之后，data【base】之前的所有值均小于data【base】，其之后的所有值均大于data【base】<br>return base;<br>}<br>public static void main(String[] args) {<br>    int []data= {3,4,1,2,6,4,5,7,8,0,9,43,98,88,5,7};<br>    quickSore(data,0,data.length-1);<br>    for(int i=0;i&lt;data.length;++i) {<br>        System.out.print(data[i]+”  “);<br>    }<br>    System.out.println();<br>}<br>}</p>
+        <p>简单来说，递归就是方法自己调用自己，但是需要终止条件来防止造成死循环。<br>相关概念：直接递归，间接递归，尾递归，线性递归和树状递归。<br>直接递归即为在方法的return中直接（显式）地调用自己。<br>间接递归即为方法在return语句中未调用自己，而是调用了其他方法，再由其他方法来调用自己（隐式调用）。<br>尾递归：即在方法的return语句中仅调用自己，无任何其他计算（未决操作）；尾递归的优点在于其每次递归不需要存储未决操作的相关信息，即需<br>存储的信息量不会随递归次数的增加而增加，可以节省大量资源。一般将普通递归转化为尾递归的方法是将表达式中其他的参数作为方法的参数。<br>线性和树状递归：线性递归指未决操作中不含递归调用，即每次递归只会产生一个调用；而树状递归则在未决操作中含有递归调用，即每次调用会分<br>支产生多个递归调用。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/快速排序程序分析/" data-id="cjjuu4k6s0004lov6fq61zifa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/29-递归/" data-id="cjjv1sa0s000rn4v64cylibd5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -214,10 +211,10 @@
 
 
   
-    <article id="post-Hello-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-28-迭代器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/21/Hello-Hexo/" class="article-date">
-  <time datetime="2018-07-21T02:59:14.000Z" itemprop="datePublished">2018-07-21</time>
+    <a href="/2018/07/21/28-迭代器/" class="article-date">
+  <time datetime="2018-07-21T06:31:17.000Z" itemprop="datePublished">2018-07-21</time>
 </a>
     
   </div>
@@ -228,7 +225,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/Hello-Hexo/">Hello,Hexo</a>
+      <a class="article-title" href="/2018/07/21/28-迭代器/">28,迭代器</a>
     </h1>
   
 
@@ -236,12 +233,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>欢迎大家参观我的博客。</p>
+        <p>java的集合种类众多，它们分别有着不同的底层数据结构，故而它们各自的遍历方式也不同，为了让用户无需了解集合的底层结构也能便捷地遍历集<br>合，java引入了迭代器。<br>迭代器即为Iterator接口的对象，根据遍历的集合类型不同，实例化时所使用的构造方法也不同。<br>通常使用迭代器的格式为：<br>List list = new ArrayList();<br>Iterator listIt = list.iterator();<br>while(listIt.hasNext()){<br>System.out.println(listIt.next());<br>}<br>注：因为ArrayList类间接继承了Iterator接口，重写了iterator()方法，故list.iterator()方法返回的是实例，使Iterator对象listIt可以被实例<br>化。<br>Iterator接口中常用的只有hasNext()和next()两个方法，hasNext()返回boolean型值，判断集合中是否还有元素；next()返回集合中的元素，并将<br>索引指向下一个元素，使下一次调用next()方法时遍历到下一个元素。<br>注：直接使用（即可实例化）的集合类（如ArrayList，LinkedList等）均为间接继承Iterator接口，故这些集合类中未重写hasNext()方法和next()<br>方法，以ArrayList类为例，该类继承了AbstractList类，在AbstractList类中才重写了这两个方法，以下是源代码：<br>public boolean hasNext() {<br>return cursor != size();<br>}<br>public E next() {<br>checkForComodification();<br>try {<br>int i = cursor;<br>E next = get(i);<br>lastRet = i;<br>cursor = i + 1;<br>return next;<br>} catch (IndexOutOfBoundsException e) {<br>checkForComodification();<br>throw new NoSuchElementException();<br>}<br>}<br>当然，对于不同的集合类，重写的hasNext()和next()也不同。<br>注：使用迭代器遍历时不允许对集合元素进行增删（即改变集合的size），否则会产生异常；但是可以改变元素，不会产生异常。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/Hello-Hexo/" data-id="cjjuu4k6l0001lov6aif6znyx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/28-迭代器/" data-id="cjjv1sa0s000mn4v65naj0sy5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -251,10 +248,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-27-基本数据类和包装类（自动拆装箱）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/21/hello-world/" class="article-date">
-  <time datetime="2018-07-21T01:19:58.754Z" itemprop="datePublished">2018-07-21</time>
+    <a href="/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" class="article-date">
+  <time datetime="2018-07-21T06:30:32.000Z" itemprop="datePublished">2018-07-21</time>
 </a>
     
   </div>
@@ -265,7 +262,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/hello-world/">Hello World</a>
+      <a class="article-title" href="/2018/07/21/27-基本数据类和包装类（自动拆装箱）/">27,基本数据类和包装类（自动拆装箱）</a>
     </h1>
   
 
@@ -273,20 +270,160 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>装箱即为将基本数据类型转化为其对应的引用类型，拆箱即为将特定的某些引用类型转化为其对应的基本数据类型。<br>java中每种基本数据类型均对应有包装器类型（引用类型），而一般引用类型在使用格式为ArrayList list=new ArraayList();而ArrayList list的<br>形式会造成空指针异常，但在定义Integer类型变量时我们一般会写：Integer i=10；并没有用new指令（JDK5新特性），这就是自动装箱。同样的道<br>理，Integer类型变量i在执行i=i+5；语句时，5为int型，需要将i拆箱为int型进行计算，再将其装箱为Integer类型，该过程中拆装箱均不需要用户<br>写相关代码，这就是自动拆装箱。<br>自动拆装箱优点：增强了代码的可读性，简化了代码。<br>注：当数值在byte范围内(-128-127)时，自动装箱时不会新创建对象。（即数值相同的两个Integer型变量使用==运算符的返回值为true）<br>基本数据类（8种）及其存储空间：int（4字节）byte（1字节）short（2字节）long（8字节）float（4字节）double（8字节）char（2字节）<br>boolean（不确定）<br>注：（1）如果书写long型的值，则需要在数值后面添加字母L，大小写均可以。<br>（2）小数型的取值范围以科学计数形式进行描述。<br>（3）float类型的小数，需要在小数后加字母F，不区分大小写，例如4.09f或4.09F，但double类型赋小数值时不必加f，可以直接写。<br>（4）布尔型占用的空间取决于Java虚拟机（JVM）的实现，可能是1bit，也可能是8bit，且其默认值为false。<br>（5）基本数据类未包装任何方法及特殊属性，仅包含数据。<br>包装类：即包装了除数据外的其他属性和方法的类。除了8种基本数据类型以外，其他数据类型均为包装类（引用类型）特殊的，Integer，Byte，<br>Short，Long，Boolean，Character，Float，Double这些引用类型可以拆箱为基本数据类型。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/hello-world/" data-id="cjjuu4k6g0000lov6zz06kzzq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" data-id="cjjv1sa0i000kn4v6jczgv18s" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-26-线程和进程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/26-线程和进程/" class="article-date">
+  <time datetime="2018-07-21T06:30:01.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/26-线程和进程/">26,线程和进程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在操作系统中，每一个独立运行的程序都是一个进程，而进程可以包含一个或多个线程，而多线程，就是在一个进程中，开启多个线程，使多个线程<br>交替执行，由于CPU运行处理很快，所以看起来似乎在同时处理多个线程，CPU执行进程也是如此。<br>而二者的区别在于资源管理方式不同，每个进程都有独立的地址空间，所以一个进程崩溃后，其他线程不会受到影响；但是各个线程之间并没有单独<br>的地址空间，一个线程崩溃就会使整个进程崩溃。不过也正因如此，进程无法共享变量实现并发，但线程可以。<br>java中实现多线程有两种方式：一种是继承Thread类并重写Thread类的run()方法，重写的run()就是该线程运行的代码；另一种是继承Runnable接口<br>，也是run()方法就是线程执行的代码。二者的不同之处在于，使用继承Thread类的方式无法实现多个线程共同抢夺临界资源，但是使用继承Runnabl<br>e接口的方式则可以。<br>线程有五种状态：新建状态，就绪状态，运行状态，阻塞状态，死亡状态。<br>新建状态：线程在刚被创建时，会短暂地处于这种状态，此时线程已被分配系统资源并完成了初始化，有资格获得CPU运行时间。<br>就绪状态：线程在执行start()方法之后就会进入这种状态，此时只要线程得到CPU时间就会进入运行状态。<br>运行状态：就是线程运行时的状态，可能被阻塞也可能执行完毕进入死亡状态。<br>阻塞状态：运行状态的进程如果遇到以下几种情况就会进入阻塞状态：调用了wait()，join()或sleep()方法，调用了IO阻塞方法，等待执行上锁的<br>代码块或方法。阻塞状态在以下情况下会进入就绪状态：获得了同步锁，阻塞IO方法返回，sleep()方法等待时间到，调用notify()或notifyAll()方<br>法，调用join()方法的线程终止。<br>死亡状态：运行状态的线程执行完毕或产生Exception或Error会进入死亡状态。<br>相关方法说明：sleep()方法：以数字作为参数，代表等待的毫秒数，使线程在规定的时间内进入阻塞状态，期间线程的锁不释放，且notify()或<br>notifyAll()无法将线程唤醒。<br>wait()方法：有两种使用方式：第一种的作用和sleep()方法相似，但是期间线程的锁释放，而且可以被notify()或notifyAll()唤醒；第二种方式无<br>参数，此时线程将会无线地等待下去，除非被notify()或notifyAll()唤醒。<br>线程在被调度时会参考线程的优先级（由线程的优先级参数决定），但是仍有一定的随机性，哪些线程被分配CPU时间是无法预测的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/26-线程和进程/" data-id="cjjv1sa0i000jn4v6z0f32jn4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-25-泛型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/25-泛型/" class="article-date">
+  <time datetime="2018-07-21T06:29:27.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/25-泛型/">25,泛型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>集合中的各个元素的类型可以不同，如果想要保证集合中所有元素均为某一种类型，就需要用到泛型。<br>集合不会记住所加入对象的类型，编译时所有元素为Object类型，但元素在被取出调用时其仍然为其原本的类型，且其原本类型的特性并未改变。为<br>了让集合“记住”集合内元素的类型，需要用到泛型。<br>泛型使用格式：集合类型&lt;基本类型&gt; 集合名=new 集合类型&lt;基本类型&gt;()<br>使用泛型之后，在编译时编译器就会认定集合中所有的元素类型必须为指定的类型，否则就会报错。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/25-泛型/" data-id="cjjv1sa0i000hn4v6pugyje0o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-24-异常及异常的注意事项" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/24-异常及异常的注意事项/" class="article-date">
+  <time datetime="2018-07-21T06:29:10.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/24-异常及异常的注意事项/">24,异常及异常的注意事项</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用异常，是为了处理在运行时可能出现的错误，try块测试可能出异常的代码，catch块在捕获异常后进行处理，使用户可以自己控制异常的处理，<br>而且用户可以自行确定捕获的异常的类型和范围，使系统不必去检查是哪个特定错误；而且，一个try块可以对应多个catch块，使用户可以对于异常<br>的捕获和处理更为精确，不过也因此需要注意：<br>try{}<br>catch(Exception e){}<br>catch(Exception e){}<br>catch语句是按顺序执行的，所以catch中的异常参数的类型范围需要从小到大。<br>使用异常，还可以使用户更便捷地记录异常，以便用户对异常进行分类和处理。<br>除了已有的异常类，还可以自定义异常类，不过必须继承已有的异常类。<br>异常机制包含异常说明，可以在不泄露源代码的前提下对于发生的异常进行说明。<br>在try块和catch块之后还可以添加finally块，在finally块中的语句在执行完try和catch块之后必然会被执行，无论是否有异常抛出（即使catch或<br>try块内含有return语句，finally块也会在return语句执行前被执行）。<br>对于异常的处理，有两种方式，第一种是直接处理，即对于产生的问题作出相应地处理；还有一种方式是将该异常向上抛出，但是使用向上抛出时需<br>要注意，当异常已经出现在主方法时，不能再向上抛出，因为主方法已经是最顶层了。<br>附：java中常见的异常类型：NullPointerException 空指针异常 ClassNotFoundException 指定类不存在异常 NumberFormatException 字符串转数<br>字异常 IndexOutOfBoundsException 数组下标越界异常 FileNotFoundException 文件未找到异常 ClassCastException 数据类型转换异常 Illegal<br>ArgumentException 方法参数错误异常 IllegalAccessException 无访问权限异常 ArithmeticException 数学运算异常。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/" data-id="cjjv1sa0i000in4v62n2ea5lt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-23-throw和throws" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/23-throw和throws/" class="article-date">
+  <time datetime="2018-07-21T06:28:40.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/23-throw和throws/">23,throw和throws</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>throw和throws均为java中抛出异常形式；java中共有三种抛出异常的形式：throw，throws和系统自动抛出异常。其中系统抛出异常为自动（如：<br>int a = 5, b =0; System.out.println(5/b);语句在编译时不会报错，但在程序运行时会由系统自动抛出异常），throw和throws抛出异常需要人<br>为控制。<br>throw和throws的主要区别在于：throw是直接抛出异常（格式：throw 异常对象），执行该语句即会抛出异常；而throws用于声明某方法可能会抛出<br>异常（格式：throws 异常类型），写在方法的参数列表后。故而，throw出现在方法体中，throws出现在方法头中。<br>throw指令意为“向上抛出”，即在其上层中需要有catch块来捕捉该异常，故throw不能用于主方法中（因为主方法无上层）；throws修饰的方法在调<br>用时需要将其放入try块中，在出现异常时可以用catch块捕捉。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/23-throw和throws/" data-id="cjjv1sa0i000gn4v660vj814q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -297,6 +434,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -327,23 +469,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/21/抽奖问题/">抽奖问题</a>
+            <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
           </li>
         
           <li>
-            <a href="/2018/07/21/原来scanf函数还有返回值/">原来scanf函数还有返回值</a>
+            <a href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
           </li>
         
           <li>
-            <a href="/2018/07/21/java集合解读/">java集合解读</a>
+            <a href="/2018/07/21/30-this和super/">30,this和super</a>
           </li>
         
           <li>
-            <a href="/2018/07/21/快速排序程序分析/">快速排序程序分析</a>
+            <a href="/2018/07/21/29-递归/">29,递归</a>
           </li>
         
           <li>
-            <a href="/2018/07/21/Hello-Hexo/">Hello,Hexo</a>
+            <a href="/2018/07/21/28-迭代器/">28,迭代器</a>
           </li>
         
       </ul>

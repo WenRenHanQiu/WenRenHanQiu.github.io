@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>21,线程的五种状态 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="线程的五种状态分别为：创建，就绪，运行，阻塞，死亡。新建状态：线程在刚被创建时，会短暂地处于这种状态，此时线程已被分配系统资源并完成了初始化，有资格获得CPU运行时间。就绪状态：线程在执行start()方法之后就会进入这种状态，此时只要线程得到CPU时间就会进入运行状态。运行状态：就是线程运行时的状态，可能被阻塞也可能执行完毕进入死亡状态。阻塞状态：运行状态的进程如果遇到以下几种情况就会进入阻塞状">
+<meta property="og:type" content="article">
+<meta property="og:title" content="21,线程的五种状态">
+<meta property="og:url" content="http://yoursite.com/2018/07/21/21-线程的五种状态/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="线程的五种状态分别为：创建，就绪，运行，阻塞，死亡。新建状态：线程在刚被创建时，会短暂地处于这种状态，此时线程已被分配系统资源并完成了初始化，有资格获得CPU运行时间。就绪状态：线程在执行start()方法之后就会进入这种状态，此时只要线程得到CPU时间就会进入运行状态。运行状态：就是线程运行时的状态，可能被阻塞也可能执行完毕进入死亡状态。阻塞状态：运行状态的进程如果遇到以下几种情况就会进入阻塞状">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-21T06:35:55.557Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="21,线程的五种状态">
+<meta name="twitter:description" content="线程的五种状态分别为：创建，就绪，运行，阻塞，死亡。新建状态：线程在刚被创建时，会短暂地处于这种状态，此时线程已被分配系统资源并完成了初始化，有资格获得CPU运行时间。就绪状态：线程在执行start()方法之后就会进入这种状态，此时只要线程得到CPU时间就会进入运行状态。运行状态：就是线程运行时的状态，可能被阻塞也可能执行完毕进入死亡状态。阻塞状态：运行状态的进程如果遇到以下几种情况就会进入阻塞状">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-21-线程的五种状态" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/21-线程的五种状态/" class="article-date">
+  <time datetime="2018-07-21T06:27:28.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      21,线程的五种状态
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>线程的五种状态分别为：创建，就绪，运行，阻塞，死亡。<br>新建状态：线程在刚被创建时，会短暂地处于这种状态，此时线程已被分配系统资源并完成了初始化，有资格获得CPU运行时间。<br>就绪状态：线程在执行start()方法之后就会进入这种状态，此时只要线程得到CPU时间就会进入运行状态。<br>运行状态：就是线程运行时的状态，可能被阻塞也可能执行完毕进入死亡状态。<br>阻塞状态：运行状态的进程如果遇到以下几种情况就会进入阻塞状态：调用了wait()，join()或sleep()方法，调用了IO阻塞方法，等待执行上锁的<br>代码块或方法。阻塞状态在以下情况下会进入就绪状态：获得了同步锁，阻塞IO方法返回，sleep()方法等待时间到，调用notify()或notifyAll()方<br>法，调用join()方法的线程终止。<br>死亡状态：运行状态的线程执行完毕或产生Exception或Error会进入死亡状态。<br>相关方法说明：sleep()方法：以数字作为参数，代表等待的毫秒数，使线程在规定的时间内进入阻塞状态，期间线程的锁不释放，且notify()或<br>notifyAll()无法将线程唤醒。<br>wait()方法：有两种使用方式：第一种的作用和sleep()方法相似，但是期间线程的锁释放，而且可以被notify()或notifyAll()唤醒；第二种方式无<br>参数，此时线程将会无线地等待下去，除非被notify()或notifyAll()唤醒。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/21-线程的五种状态/" data-id="cjjv1sa0i000en4v670yxkth4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/21/22-给成员变量赋值的方式有几种，分别怎么实现/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          22,给成员变量赋值的方式有几种，分别怎么实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/21/20-Collection和Collections的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">20,Collection和Collections的区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/30-this和super/">30,this和super</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/29-递归/">29,递归</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/28-迭代器/">28,迭代器</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

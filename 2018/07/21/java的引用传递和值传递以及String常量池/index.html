@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>java的引用传递和值传递以及String常量池 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先，从整体来说，因为基本数据类型变量所占据的存储空间所存储的是需要存储的实际值，而引用数据类型所存储的是指向需要存储实际值的存储空间的地址，所以基本数据类型之间使用值传递，引用数据类型之间使用引用传递，但String类型和数组是例外。先说明一下普通的值传递和引用传递原理：使用值传递的形参和实参均直接存储实际需要存储或修改的值，而形参和实参占用的是两份不同的存储空间，且形参的存储空间在其所在的方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java的引用传递和值传递以及String常量池">
+<meta property="og:url" content="http://yoursite.com/2018/07/21/java的引用传递和值传递以及String常量池/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="首先，从整体来说，因为基本数据类型变量所占据的存储空间所存储的是需要存储的实际值，而引用数据类型所存储的是指向需要存储实际值的存储空间的地址，所以基本数据类型之间使用值传递，引用数据类型之间使用引用传递，但String类型和数组是例外。先说明一下普通的值传递和引用传递原理：使用值传递的形参和实参均直接存储实际需要存储或修改的值，而形参和实参占用的是两份不同的存储空间，且形参的存储空间在其所在的方法">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-21T06:42:52.927Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java的引用传递和值传递以及String常量池">
+<meta name="twitter:description" content="首先，从整体来说，因为基本数据类型变量所占据的存储空间所存储的是需要存储的实际值，而引用数据类型所存储的是指向需要存储实际值的存储空间的地址，所以基本数据类型之间使用值传递，引用数据类型之间使用引用传递，但String类型和数组是例外。先说明一下普通的值传递和引用传递原理：使用值传递的形参和实参均直接存储实际需要存储或修改的值，而形参和实参占用的是两份不同的存储空间，且形参的存储空间在其所在的方法">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java的引用传递和值传递以及String常量池" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/java的引用传递和值传递以及String常量池/" class="article-date">
+  <time datetime="2018-07-21T06:41:45.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java的引用传递和值传递以及String常量池
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，从整体来说，因为基本数据类型变量所占据的存储空间所存储的是需要存储的实际值，而引用数据类型所存储的是指向需要存储实际值的存<br>储空间的地址，所以基本数据类型之间使用值传递，引用数据类型之间使用引用传递，但String类型和数组是例外。<br>先说明一下普通的值传递和引用传递原理：使用值传递的形参和实参均直接存储实际需要存储或修改的值，而形参和实参占用的是两份不同的存储<br>空间，且形参的存储空间在其所在的方法执行完毕后会被释放，故而只是形参存储的值被改变后其存储空间又被释放而已，实参存储的值不会改变<br>；而使用引用传递的形参和实参内存储的是需要存储或修改的值的存储空间的地址，即形参和实参虽然各自使用不同的存储空间，但均指向同一份<br>存储了实际值的存储空间，故而在方法执行完毕之后，二者所指向的同一份存储空间所存储的值也被改变了，即使形参存储空间被释放，实参所存<br>储（指向）的值也被改变了。<br>但是，String类型本身含有常量池，即含有所有字符串的池，常量池中的存储的所有值不会被改变，变量只能改变指向方向，所以除非使用new指令<br>开辟额外的存储空间，否则的话String类型变量会指向常量池中与存储值相同的，本来就存在的那份存储空间。而在方法执行完毕后，只是形参的<br>指向（存储的地址）改变了，故而实参所存储（指向）的值仍未改变。<br>数组实参传递给形参的是数组名，即指向数组实际存储值存储空间的地址，故其原理和普通引用传递是相同的，所以无论是引用数据类型数组还是<br>基本数据类型数组均使用引用传递。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/java的引用传递和值传递以及String常量池/" data-id="cjjv1sa12000wn4v6wn2fcjmu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/21/java各种集合的扩容机制/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          java各种集合的扩容机制
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/21/30-this和super/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">30,this和super</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/30-this和super/">30,this和super</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/29-递归/">29,递归</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/28-迭代器/">28,迭代器</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

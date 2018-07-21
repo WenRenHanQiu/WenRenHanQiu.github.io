@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>27,基本数据类和包装类（自动拆装箱） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="装箱即为将基本数据类型转化为其对应的引用类型，拆箱即为将特定的某些引用类型转化为其对应的基本数据类型。java中每种基本数据类型均对应有包装器类型（引用类型），而一般引用类型在使用格式为ArrayList list=new ArraayList();而ArrayList list的形式会造成空指针异常，但在定义Integer类型变量时我们一般会写：Integer i=10；并没有用new指令（JD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="27,基本数据类和包装类（自动拆装箱）">
+<meta property="og:url" content="http://yoursite.com/2018/07/21/27-基本数据类和包装类（自动拆装箱）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="装箱即为将基本数据类型转化为其对应的引用类型，拆箱即为将特定的某些引用类型转化为其对应的基本数据类型。java中每种基本数据类型均对应有包装器类型（引用类型），而一般引用类型在使用格式为ArrayList list=new ArraayList();而ArrayList list的形式会造成空指针异常，但在定义Integer类型变量时我们一般会写：Integer i=10；并没有用new指令（JD">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-21T06:34:08.447Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="27,基本数据类和包装类（自动拆装箱）">
+<meta name="twitter:description" content="装箱即为将基本数据类型转化为其对应的引用类型，拆箱即为将特定的某些引用类型转化为其对应的基本数据类型。java中每种基本数据类型均对应有包装器类型（引用类型），而一般引用类型在使用格式为ArrayList list=new ArraayList();而ArrayList list的形式会造成空指针异常，但在定义Integer类型变量时我们一般会写：Integer i=10；并没有用new指令（JD">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-27-基本数据类和包装类（自动拆装箱）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" class="article-date">
+  <time datetime="2018-07-21T06:30:32.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      27,基本数据类和包装类（自动拆装箱）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>装箱即为将基本数据类型转化为其对应的引用类型，拆箱即为将特定的某些引用类型转化为其对应的基本数据类型。<br>java中每种基本数据类型均对应有包装器类型（引用类型），而一般引用类型在使用格式为ArrayList list=new ArraayList();而ArrayList list的<br>形式会造成空指针异常，但在定义Integer类型变量时我们一般会写：Integer i=10；并没有用new指令（JDK5新特性），这就是自动装箱。同样的道<br>理，Integer类型变量i在执行i=i+5；语句时，5为int型，需要将i拆箱为int型进行计算，再将其装箱为Integer类型，该过程中拆装箱均不需要用户<br>写相关代码，这就是自动拆装箱。<br>自动拆装箱优点：增强了代码的可读性，简化了代码。<br>注：当数值在byte范围内(-128-127)时，自动装箱时不会新创建对象。（即数值相同的两个Integer型变量使用==运算符的返回值为true）<br>基本数据类（8种）及其存储空间：int（4字节）byte（1字节）short（2字节）long（8字节）float（4字节）double（8字节）char（2字节）<br>boolean（不确定）<br>注：（1）如果书写long型的值，则需要在数值后面添加字母L，大小写均可以。<br>（2）小数型的取值范围以科学计数形式进行描述。<br>（3）float类型的小数，需要在小数后加字母F，不区分大小写，例如4.09f或4.09F，但double类型赋小数值时不必加f，可以直接写。<br>（4）布尔型占用的空间取决于Java虚拟机（JVM）的实现，可能是1bit，也可能是8bit，且其默认值为false。<br>（5）基本数据类未包装任何方法及特殊属性，仅包含数据。<br>包装类：即包装了除数据外的其他属性和方法的类。除了8种基本数据类型以外，其他数据类型均为包装类（引用类型）特殊的，Integer，Byte，<br>Short，Long，Boolean，Character，Float，Double这些引用类型可以拆箱为基本数据类型。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" data-id="cjjv1sa0i000kn4v6jczgv18s" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/21/28-迭代器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          28,迭代器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/21/26-线程和进程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">26,线程和进程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/30-this和super/">30,this和super</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/29-递归/">29,递归</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/28-迭代器/">28,迭代器</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
