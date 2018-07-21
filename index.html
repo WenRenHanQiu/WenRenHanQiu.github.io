@@ -62,6 +62,158 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-抽奖问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/抽奖问题/" class="article-date">
+  <time datetime="2018-07-21T03:08:53.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/抽奖问题/">抽奖问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>抽奖问题：简单来说就是已知奖券种类数（m）和买的奖券张数（n），奖券可重复，集齐所有种类奖券即中奖，求中奖的概率。<br>解决该题的思想是动态规划，设已买奖券数为i，奖券种类数为m，已买奖券中种类数为j，中奖概率为f（i，j），则中奖概率的递推公式为：<br>f（i，j）=f（i-1，j）j/m+f（i-1，j-1）（m-j+1）/m，意义为：买i张奖券集齐j种奖券的概率为：买i-1张奖券集齐j种奖券的概率乘以j/m<br>，加买i-1张奖券集齐j-1种奖券的概率乘以（m-j+1）/m，即买i张奖券集齐j种奖券的概率等于买第i张奖券集齐第j种奖券的概率，加买第i张<br>奖券是之前已经有的j种奖券（即重复）的概率。则当j（已集齐的奖券数）等于m（奖券种类总数）时，f（i，j）即为所求解。<br>代码如下：</p>
+<p>#include</p>
+<p>#include</p>
+<p>#include</p>
+<p>#include<br>using namespace std;<br>int n,m;<br>double d[25][25];<br>int main()<br>{<br>//freopen(“in.txt”,”r”,stdin);<br>while(scanf(“%d%d”,&amp;m,&amp;n)==2) //m为奖券种类数，n为购买奖券张数 while的判定条件保证了每一次从输入的（int型）值中每两个进行计算中奖概率<br>{<br>d[0][0]=1;<br>for(int i=1;i&lt;=n;i++)<br>for(int j=0;j&lt;=m&amp;&amp;j&lt;=i;j++)<br>{<br>d[i][j]=0;<br>d[i][j]+=d[i-1]<a href="(double">j</a>j/m); //买第i张奖券未获得新种类奖券的概率<br>if(j) d[i][j]+=d[i-1]<a href="(double">j-1</a>(m-j+1)/m); //买第i张奖券获得新种类奖券的概率<br>}<br>printf(“%.4lf\n”,d[n][m]);<br>}<br>return 0;<br>}<br>Q：为什么买第i张奖券获得新奖券的概率与未获得新奖券的概率之和不是1呢？<br>A：因为本题目求的是买n张奖券中奖（即及其m种图案）的概率，而本题的解题思路是：先求买1张奖券中奖的概率，再求买2张奖券中奖的概率，<br>直到求出买n张奖券中奖的概率；其中每一次计算概率的方式是：计算买i张奖券集齐j种图案的概率是买第i张奖券获得新图案和未获得新图案<br>的概率之和，因为买完第i张奖券后集齐的奖券种类数为j，故计算买第i张奖券获得新图案的概率是(m-j+1)/m（在买第i张奖券之前已获得j-1<br>种奖券），否则概率是j/m（在买第i张奖券之前已获得j种奖券）。故二者之和不为1。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/抽奖问题/" data-id="cjjuu4k6t0005lov6q11n0op6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-原来scanf函数还有返回值" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/原来scanf函数还有返回值/" class="article-date">
+  <time datetime="2018-07-21T03:07:33.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/原来scanf函数还有返回值/">原来scanf函数还有返回值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>scanf是c中我们非常熟悉的函数，但是今天我在解读某算法代码时发现它竟然还有返回值。经过我的测试，发现其返回值为int型，其值的意义为：按照scanf内定义的输入类型正确地输入数据的个数。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/原来scanf函数还有返回值/" data-id="cjjuu4k6n0002lov6sj6e8gok" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java集合解读" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/java集合解读/" class="article-date">
+  <time datetime="2018-07-21T03:06:32.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/java集合解读/">java集合解读</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>容器大体上分为：数组（固定大小），集合（大小动态变化）<br>集合大体上可分为：Collection（一个独立元素的序列，即仅有值），Map（一组成对的“键值对”对象，允许你使用键来查找值，即每一个对象均为“键值对”）<br>集合：<br>一，Collection：<br>1，ArrayList：<br>特点：ArrayList可以动态增长和缩减（所有集合的共性，也是集合相比于数组的最大区别），底层为数组，线程不安全。<br>动态增长与缩减的原因：该类封装了一个动态再分配的Object[]数组，使每个类对象均含有一个名为capacity的属性，该属性表示并控制数组的长度，比如：当向ArrayList内添加元素时，该属性值便会增加。<br>与数组的length不同，ArrayList含有size和Capacity两个属性，数组的length属性即为数组定义时的大小，与数组中的对象个数无关，但ArrayList的size为集合内对象的个数，Capacity为集合的存储空间大小。<br>Capacity为动态增长和缩减的，其增长规律为：int newCapacity=（oldCapacity*3）/2+1;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/java集合解读/" data-id="cjjuu4k6p0003lov63ziz2bzv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-快速排序程序分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/快速排序程序分析/" class="article-date">
+  <time datetime="2018-07-21T03:05:22.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/快速排序程序分析/">快速排序程序分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>package com.google.javase.zs;<br>//快速排序<br>public class QuickSore{<br>public static void quickSore(int[] data, int left, int right) { //该方法的递归即为分治法<br>int base;<br>if(right&gt;left) { //if内的条件即为递归中止条件<br>base=sort(data,left,right);<br>quickSore(data,left,base-1);//小于基准<br>quickSore(data,base+1,right);//大于基准<br>}<br>}<br>public static int sort(int[] data, int left, int right) { //sort函数即为在一个基准下的排序<br>int zj=data[left];<br>int base=left,zjz; //普通快排为选取数组第一个元素的值为基准值<br>data[left]=data[right]; //此两步将原数组的首元素与尾元素的值互换<br>data[right]=zj;<br>for(int i=left;i&lt;right;++i) {<br>if(data[right]&gt;data[i]) { //该if语句等价于以末尾值为基准值进行快排<br>zjz=data[base];<br>data[base]=data[i];<br>data[i]=zjz;<br>base++;<br>}<br>}<br>zjz=data[base]; //此处zjz的值为数组中小于等于末尾值的所有值中序号最大的元素的值<br>data[base]=data[right];<br>data[right]=zjz; //此处交换data【base】和data【right】的值之后，data【base】之前的所有值均小于data【base】，其之后的所有值均大于data【base】<br>return base;<br>}<br>public static void main(String[] args) {<br>    int []data= {3,4,1,2,6,4,5,7,8,0,9,43,98,88,5,7};<br>    quickSore(data,0,data.length-1);<br>    for(int i=0;i&lt;data.length;++i) {<br>        System.out.print(data[i]+”  “);<br>    }<br>    System.out.println();<br>}<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/快速排序程序分析/" data-id="cjjuu4k6s0004lov6fq61zifa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Hello-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/21/Hello-Hexo/" class="article-date">
@@ -89,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/Hello-Hexo/" data-id="cjjuttv190000vwv6p6h4ti0i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/Hello-Hexo/" data-id="cjjuu4k6l0001lov6aif6znyx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -134,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/hello-world/" data-id="cjjuttv1g0001vwv66yn0ceec" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/hello-world/" data-id="cjjuu4k6g0000lov6zz06kzzq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -175,11 +327,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/21/Hello-Hexo/">Hello,Hexo</a>
+            <a href="/2018/07/21/抽奖问题/">抽奖问题</a>
           </li>
         
           <li>
-            <a href="/2018/07/21/hello-world/">Hello World</a>
+            <a href="/2018/07/21/原来scanf函数还有返回值/">原来scanf函数还有返回值</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/java集合解读/">java集合解读</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/快速排序程序分析/">快速排序程序分析</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/21/Hello-Hexo/">Hello,Hexo</a>
           </li>
         
       </ul>
