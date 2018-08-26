@@ -62,6 +62,84 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-树相关算法题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/26/树相关算法题/" class="article-date">
+  <time datetime="2018-08-26T09:52:37.000Z" itemprop="datePublished">2018-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/26/树相关算法题/">树相关算法题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本篇博客会陆续收集我所遇到的有关树的算法题：<br>1，题目描述<br>操作给定的二叉树，将其变换为源二叉树的镜像。<br>输入描述:<br>二叉树的镜像定义：源二叉树<br>            8<br>           /  \<br>          6   10<br>         / \  / \<br>        5  7 9 11<br>        镜像二叉树<br>            8<br>           /  \<br>          10   6<br>         / \  / \<br>        11 9 7  5<br>算法：<br>class TreeNode {<br>    int val = 0;<br>    TreeNode left = null;<br>    TreeNode right = null;</p>
+<pre><code>public TreeNode(int val) {
+    this.val = val;
+
+}
+</code></pre><p>}<br>public class Solution {<br>    public void Mirror(TreeNode root) {<br>        TreeNode r=new TreeNode(0);<br>        if(root!=null){<br>            if(root.left!=null||root.right!=null){<br>                r=root.left;<br>                root.left=root.right;<br>                root.right=r;<br>            }<br>            Mirror(root.left);<br>            Mirror(root.right);<br>        }<br>    }<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/26/树相关算法题/" data-id="cjlaoh4rk0016eov6ygmzydfq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-基数排序解析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/28/基数排序解析/" class="article-date">
+  <time datetime="2018-07-28T12:09:04.000Z" itemprop="datePublished">2018-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/28/基数排序解析/">基数排序解析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/28/基数排序解析/" data-id="cjlaoh4rh0013eov6od7wywv3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-java各种集合的扩容机制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/21/java各种集合的扩容机制/" class="article-date">
@@ -90,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/java各种集合的扩容机制/" data-id="cjjv1sa120011n4v6ces8rurk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/java各种集合的扩容机制/" data-id="cjlaoh4ra000xeov6tccexo38" class="article-share-link">Share</a>
       
       
     </footer>
@@ -127,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/java的引用传递和值传递以及String常量池/" data-id="cjjv1sa12000wn4v6wn2fcjmu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/java的引用传递和值传递以及String常量池/" data-id="cjlaoh4rc000zeov68x90td2z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -164,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/30-this和super/" data-id="cjjv1sa0s000nn4v6wfia0vev" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/30-this和super/" data-id="cjlaoh4qz000peov6uxtzwirt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -201,7 +279,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/29-递归/" data-id="cjjv1sa0s000rn4v64cylibd5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/29-递归/" data-id="cjlaoh4qx000oeov6jys9u8gk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -238,7 +316,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/28-迭代器/" data-id="cjjv1sa0s000mn4v65naj0sy5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/28-迭代器/" data-id="cjlaoh4qu000meov6iiofwkab" class="article-share-link">Share</a>
       
       
     </footer>
@@ -275,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" data-id="cjjv1sa0i000kn4v6jczgv18s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" data-id="cjlaoh4qq000jeov67h9ntnp0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -312,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/26-线程和进程/" data-id="cjjv1sa0i000jn4v6z0f32jn4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/26-线程和进程/" data-id="cjlaoh4qo000ieov6xii5qwu3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -349,81 +427,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/25-泛型/" data-id="cjjv1sa0i000hn4v6pugyje0o" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-24-异常及异常的注意事项" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/24-异常及异常的注意事项/" class="article-date">
-  <time datetime="2018-07-21T06:29:10.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/24-异常及异常的注意事项/">24,异常及异常的注意事项</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用异常，是为了处理在运行时可能出现的错误，try块测试可能出异常的代码，catch块在捕获异常后进行处理，使用户可以自己控制异常的处理，<br>而且用户可以自行确定捕获的异常的类型和范围，使系统不必去检查是哪个特定错误；而且，一个try块可以对应多个catch块，使用户可以对于异常<br>的捕获和处理更为精确，不过也因此需要注意：<br>try{}<br>catch(Exception e){}<br>catch(Exception e){}<br>catch语句是按顺序执行的，所以catch中的异常参数的类型范围需要从小到大。<br>使用异常，还可以使用户更便捷地记录异常，以便用户对异常进行分类和处理。<br>除了已有的异常类，还可以自定义异常类，不过必须继承已有的异常类。<br>异常机制包含异常说明，可以在不泄露源代码的前提下对于发生的异常进行说明。<br>在try块和catch块之后还可以添加finally块，在finally块中的语句在执行完try和catch块之后必然会被执行，无论是否有异常抛出（即使catch或<br>try块内含有return语句，finally块也会在return语句执行前被执行）。<br>对于异常的处理，有两种方式，第一种是直接处理，即对于产生的问题作出相应地处理；还有一种方式是将该异常向上抛出，但是使用向上抛出时需<br>要注意，当异常已经出现在主方法时，不能再向上抛出，因为主方法已经是最顶层了。<br>附：java中常见的异常类型：NullPointerException 空指针异常 ClassNotFoundException 指定类不存在异常 NumberFormatException 字符串转数<br>字异常 IndexOutOfBoundsException 数组下标越界异常 FileNotFoundException 文件未找到异常 ClassCastException 数据类型转换异常 Illegal<br>ArgumentException 方法参数错误异常 IllegalAccessException 无访问权限异常 ArithmeticException 数学运算异常。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/" data-id="cjjv1sa0i000in4v62n2ea5lt" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-23-throw和throws" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/23-throw和throws/" class="article-date">
-  <time datetime="2018-07-21T06:28:40.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/23-throw和throws/">23,throw和throws</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>throw和throws均为java中抛出异常形式；java中共有三种抛出异常的形式：throw，throws和系统自动抛出异常。其中系统抛出异常为自动（如：<br>int a = 5, b =0; System.out.println(5/b);语句在编译时不会报错，但在程序运行时会由系统自动抛出异常），throw和throws抛出异常需要人<br>为控制。<br>throw和throws的主要区别在于：throw是直接抛出异常（格式：throw 异常对象），执行该语句即会抛出异常；而throws用于声明某方法可能会抛出<br>异常（格式：throws 异常类型），写在方法的参数列表后。故而，throw出现在方法体中，throws出现在方法头中。<br>throw指令意为“向上抛出”，即在其上层中需要有catch块来捕捉该异常，故throw不能用于主方法中（因为主方法无上层）；throws修饰的方法在调<br>用时需要将其放入try块中，在出现异常时可以用catch块捕捉。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/23-throw和throws/" data-id="cjjv1sa0i000gn4v660vj814q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/25-泛型/" data-id="cjlaoh4qn000heov6i9rb2keo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -456,7 +460,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -469,6 +473,14 @@
       <ul>
         
           <li>
+            <a href="/2018/08/26/树相关算法题/">树相关算法题</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/28/基数排序解析/">基数排序解析</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
           </li>
         
@@ -478,14 +490,6 @@
         
           <li>
             <a href="/2018/07/21/30-this和super/">30,this和super</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/21/29-递归/">29,递归</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/21/28-迭代器/">28,迭代器</a>
           </li>
         
       </ul>

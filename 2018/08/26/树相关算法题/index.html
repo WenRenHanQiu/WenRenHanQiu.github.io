@@ -5,19 +5,19 @@
   
 
   
-  <title>java集合解读 | Hexo</title>
+  <title>树相关算法题 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="容器大体上分为：数组（固定大小），集合（大小动态变化）集合大体上可分为：Collection（一个独立元素的序列，即仅有值），Map（一组成对的“键值对”对象，允许你使用键来查找值，即每一个对象均为“键值对”）集合：一，Collection：1，ArrayList：特点：ArrayList可以动态增长和缩减（所有集合的共性，也是集合相比于数组的最大区别），底层为数组，线程不安全。动态增长与缩减的原">
+  <meta name="description" content="本篇博客会陆续收集我所遇到的有关树的算法题：1，题目描述操作给定的二叉树，将其变换为源二叉树的镜像。输入描述:二叉树的镜像定义：源二叉树            8           /  \          6   10         / \  / \        5  7 9 11        镜像二叉树            8           /  \          10">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java集合解读">
-<meta property="og:url" content="http://yoursite.com/2018/07/21/java集合解读/index.html">
+<meta property="og:title" content="树相关算法题">
+<meta property="og:url" content="http://yoursite.com/2018/08/26/树相关算法题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="容器大体上分为：数组（固定大小），集合（大小动态变化）集合大体上可分为：Collection（一个独立元素的序列，即仅有值），Map（一组成对的“键值对”对象，允许你使用键来查找值，即每一个对象均为“键值对”）集合：一，Collection：1，ArrayList：特点：ArrayList可以动态增长和缩减（所有集合的共性，也是集合相比于数组的最大区别），底层为数组，线程不安全。动态增长与缩减的原">
+<meta property="og:description" content="本篇博客会陆续收集我所遇到的有关树的算法题：1，题目描述操作给定的二叉树，将其变换为源二叉树的镜像。输入描述:二叉树的镜像定义：源二叉树            8           /  \          6   10         / \  / \        5  7 9 11        镜像二叉树            8           /  \          10">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-21T03:08:22.334Z">
+<meta property="og:updated_time" content="2018-08-26T09:55:00.343Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java集合解读">
-<meta name="twitter:description" content="容器大体上分为：数组（固定大小），集合（大小动态变化）集合大体上可分为：Collection（一个独立元素的序列，即仅有值），Map（一组成对的“键值对”对象，允许你使用键来查找值，即每一个对象均为“键值对”）集合：一，Collection：1，ArrayList：特点：ArrayList可以动态增长和缩减（所有集合的共性，也是集合相比于数组的最大区别），底层为数组，线程不安全。动态增长与缩减的原">
+<meta name="twitter:title" content="树相关算法题">
+<meta name="twitter:description" content="本篇博客会陆续收集我所遇到的有关树的算法题：1，题目描述操作给定的二叉树，将其变换为源二叉树的镜像。输入描述:二叉树的镜像定义：源二叉树            8           /  \          6   10         / \  / \        5  7 9 11        镜像二叉树            8           /  \          10">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-java集合解读" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-树相关算法题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/21/java集合解读/" class="article-date">
-  <time datetime="2018-07-21T03:06:32.000Z" itemprop="datePublished">2018-07-21</time>
+    <a href="/2018/08/26/树相关算法题/" class="article-date">
+  <time datetime="2018-08-26T09:52:37.000Z" itemprop="datePublished">2018-08-26</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      java集合解读
+      树相关算法题
     </h1>
   
 
@@ -86,12 +86,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>容器大体上分为：数组（固定大小），集合（大小动态变化）<br>集合大体上可分为：Collection（一个独立元素的序列，即仅有值），Map（一组成对的“键值对”对象，允许你使用键来查找值，即每一个对象均为“键值对”）<br>集合：<br>一，Collection：<br>1，ArrayList：<br>特点：ArrayList可以动态增长和缩减（所有集合的共性，也是集合相比于数组的最大区别），底层为数组，线程不安全。<br>动态增长与缩减的原因：该类封装了一个动态再分配的Object[]数组，使每个类对象均含有一个名为capacity的属性，该属性表示并控制数组的长度，比如：当向ArrayList内添加元素时，该属性值便会增加。<br>与数组的length不同，ArrayList含有size和Capacity两个属性，数组的length属性即为数组定义时的大小，与数组中的对象个数无关，但ArrayList的size为集合内对象的个数，Capacity为集合的存储空间大小。<br>Capacity为动态增长和缩减的，其增长规律为：int newCapacity=（oldCapacity*3）/2+1;</p>
+        <p>本篇博客会陆续收集我所遇到的有关树的算法题：<br>1，题目描述<br>操作给定的二叉树，将其变换为源二叉树的镜像。<br>输入描述:<br>二叉树的镜像定义：源二叉树<br>            8<br>           /  \<br>          6   10<br>         / \  / \<br>        5  7 9 11<br>        镜像二叉树<br>            8<br>           /  \<br>          10   6<br>         / \  / \<br>        11 9 7  5<br>算法：<br>class TreeNode {<br>    int val = 0;<br>    TreeNode left = null;<br>    TreeNode right = null;</p>
+<pre><code>public TreeNode(int val) {
+    this.val = val;
+
+}
+</code></pre><p>}<br>public class Solution {<br>    public void Mirror(TreeNode root) {<br>        TreeNode r=new TreeNode(0);<br>        if(root!=null){<br>            if(root.left!=null||root.right!=null){<br>                r=root.left;<br>                root.left=root.right;<br>                root.right=r;<br>            }<br>            Mirror(root.left);<br>            Mirror(root.right);<br>        }<br>    }<br>}</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/java集合解读/" data-id="cjlaoh4rd0010eov6na3xbihv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/树相关算法题/" data-id="cjlaoh4rk0016eov6ygmzydfq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -100,19 +105,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/21/原来scanf函数还有返回值/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          原来scanf函数还有返回值
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/21/快速排序程序分析/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/07/28/基数排序解析/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">快速排序程序分析</div>
+      <div class="article-nav-title">基数排序解析</div>
     </a>
   
 </nav>

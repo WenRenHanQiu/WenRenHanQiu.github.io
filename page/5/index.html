@@ -62,6 +62,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-快速排序程序分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/快速排序程序分析/" class="article-date">
+  <time datetime="2018-07-21T03:05:22.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/快速排序程序分析/">快速排序程序分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>package com.google.javase.zs;<br>//快速排序<br>public class QuickSore{<br>public static void quickSore(int[] data, int left, int right) { //该方法的递归即为分治法<br>int base;<br>if(right&gt;left) { //if内的条件即为递归中止条件<br>base=sort(data,left,right);<br>quickSore(data,left,base-1);//小于基准<br>quickSore(data,base+1,right);//大于基准<br>}<br>}<br>public static int sort(int[] data, int left, int right) { //sort函数即为在一个基准下的排序<br>int zj=data[left];<br>int base=left,zjz; //普通快排为选取数组第一个元素的值为基准值<br>data[left]=data[right]; //此两步将原数组的首元素与尾元素的值互换<br>data[right]=zj;<br>for(int i=left;i&lt;right;++i) {<br>if(data[right]&gt;data[i]) { //该if语句等价于以末尾值为基准值进行快排<br>zjz=data[base];<br>data[base]=data[i];<br>data[i]=zjz;<br>base++;<br>}<br>}<br>zjz=data[base]; //此处zjz的值为数组中小于等于末尾值的所有值中序号最大的元素的值<br>data[base]=data[right];<br>data[right]=zjz; //此处交换data【base】和data【right】的值之后，data【base】之前的所有值均小于data【base】，其之后的所有值均大于data【base】<br>return base;<br>}<br>public static void main(String[] args) {<br>    int []data= {3,4,1,2,6,4,5,7,8,0,9,43,98,88,5,7};<br>    quickSore(data,0,data.length-1);<br>    for(int i=0;i&lt;data.length;++i) {<br>        System.out.print(data[i]+”  “);<br>    }<br>    System.out.println();<br>}<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/快速排序程序分析/" data-id="cjlaoh4ri0014eov6f8jtcbl7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hello-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/Hello-Hexo/" class="article-date">
+  <time datetime="2018-07-21T02:59:14.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/Hello-Hexo/">Hello,Hexo</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>欢迎大家参观我的博客。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/Hello-Hexo/" data-id="cjlaoh4r9000weov6uxrom91z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/21/hello-world/" class="article-date">
@@ -97,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/hello-world/" data-id="cjjv1sa1m0014n4v61ah47tjf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/hello-world/" data-id="cjlaoh4rg0012eov6u5p7mw77" class="article-share-link">Share</a>
       
       
     </footer>
@@ -130,7 +204,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -143,6 +217,14 @@
       <ul>
         
           <li>
+            <a href="/2018/08/26/树相关算法题/">树相关算法题</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/28/基数排序解析/">基数排序解析</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
           </li>
         
@@ -152,14 +234,6 @@
         
           <li>
             <a href="/2018/07/21/30-this和super/">30,this和super</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/21/29-递归/">29,递归</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/21/28-迭代器/">28,迭代器</a>
           </li>
         
       </ul>
