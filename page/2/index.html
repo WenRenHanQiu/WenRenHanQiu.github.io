@@ -62,6 +62,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-26-线程和进程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/26-线程和进程/" class="article-date">
+  <time datetime="2018-07-21T06:30:01.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/26-线程和进程/">26,线程和进程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在操作系统中，每一个独立运行的程序都是一个进程，而进程可以包含一个或多个线程，而多线程，就是在一个进程中，开启多个线程，使多个线程<br>交替执行，由于CPU运行处理很快，所以看起来似乎在同时处理多个线程，CPU执行进程也是如此。<br>而二者的区别在于资源管理方式不同，每个进程都有独立的地址空间，所以一个进程崩溃后，其他线程不会受到影响；但是各个线程之间并没有单独<br>的地址空间，一个线程崩溃就会使整个进程崩溃。不过也正因如此，进程无法共享变量实现并发，但线程可以。<br>java中实现多线程有两种方式：一种是继承Thread类并重写Thread类的run()方法，重写的run()就是该线程运行的代码；另一种是继承Runnable接口<br>，也是run()方法就是线程执行的代码。二者的不同之处在于，使用继承Thread类的方式无法实现多个线程共同抢夺临界资源，但是使用继承Runnabl<br>e接口的方式则可以。<br>线程有五种状态：新建状态，就绪状态，运行状态，阻塞状态，死亡状态。<br>新建状态：线程在刚被创建时，会短暂地处于这种状态，此时线程已被分配系统资源并完成了初始化，有资格获得CPU运行时间。<br>就绪状态：线程在执行start()方法之后就会进入这种状态，此时只要线程得到CPU时间就会进入运行状态。<br>运行状态：就是线程运行时的状态，可能被阻塞也可能执行完毕进入死亡状态。<br>阻塞状态：运行状态的进程如果遇到以下几种情况就会进入阻塞状态：调用了wait()，join()或sleep()方法，调用了IO阻塞方法，等待执行上锁的<br>代码块或方法。阻塞状态在以下情况下会进入就绪状态：获得了同步锁，阻塞IO方法返回，sleep()方法等待时间到，调用notify()或notifyAll()方<br>法，调用join()方法的线程终止。<br>死亡状态：运行状态的线程执行完毕或产生Exception或Error会进入死亡状态。<br>相关方法说明：sleep()方法：以数字作为参数，代表等待的毫秒数，使线程在规定的时间内进入阻塞状态，期间线程的锁不释放，且notify()或<br>notifyAll()无法将线程唤醒。<br>wait()方法：有两种使用方式：第一种的作用和sleep()方法相似，但是期间线程的锁释放，而且可以被notify()或notifyAll()唤醒；第二种方式无<br>参数，此时线程将会无线地等待下去，除非被notify()或notifyAll()唤醒。<br>线程在被调度时会参考线程的优先级（由线程的优先级参数决定），但是仍有一定的随机性，哪些线程被分配CPU时间是无法预测的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/26-线程和进程/" data-id="cjmhn0wpj000jkkv6w9bzqkbt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-25-泛型" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/21/25-泛型/" class="article-date">
@@ -89,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/25-泛型/" data-id="cjmhmvdnr000he0v69hiwmp26" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/25-泛型/" data-id="cjmhn0wpi000ikkv6zlfug9n6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/" data-id="cjmhmvdnt000je0v69a6tpluh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/" data-id="cjmhn0wph000hkkv6t7pvc8f4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -163,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/23-throw和throws/" data-id="cjmhmvdnp000ge0v6fvvrjcxm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/23-throw和throws/" data-id="cjmhn0wpf000gkkv6iw5lvy1p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/22-给成员变量赋值的方式有几种，分别怎么实现/" data-id="cjmhmvdnm000ee0v6rs2x9t81" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/22-给成员变量赋值的方式有几种，分别怎么实现/" data-id="cjmhn0wpd000fkkv6lecllv19" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/21-线程的五种状态/" data-id="cjmhmvdno000fe0v6rf4fx2qw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/21-线程的五种状态/" data-id="cjmhn0wpb000ekkv62hprc21w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/20-Collection和Collections的区别/" data-id="cjmhmvdnk000de0v6c9y5sihb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/20-Collection和Collections的区别/" data-id="cjmhn0wpa000dkkv6362dzta5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/19-传统for和增强for的区别/" data-id="cjmhmvdnj000ce0v668az0pms" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/19-传统for和增强for的区别/" data-id="cjmhn0wp7000bkkv64m061wio" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/18-不借助第三个变量，互换两个变量/" data-id="cjmhmvdnf000ae0v6p3vctp5y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/18-不借助第三个变量，互换两个变量/" data-id="cjmhn0wp5000akkv6sirvsr89" class="article-share-link">Share</a>
       
       
     </footer>
@@ -385,44 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/17-接口和抽象类的区别/" data-id="cjmhmvdnd0009e0v6sgzbrz1t" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-16-使用运算符-和equals-的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/16-使用运算符-和equals-的区别/" class="article-date">
-  <time datetime="2018-07-21T06:24:41.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/16-使用运算符-和equals-的区别/">16,使用运算符==和equals()的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>equals()方法在判断是仅需要两个变量的值相同即可返回真，否则返回假；而“==”在两个变量在值与存储地址均相同时表达式的值才为<br>真，否则表达式值为假。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/16-使用运算符-和equals-的区别/" data-id="cjmhmvdnb0008e0v6ruxhdtaq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/17-接口和抽象类的区别/" data-id="cjmhn0wp40009kkv6vu1lchqm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -468,6 +468,10 @@
       <ul>
         
           <li>
+            <a href="/2018/09/25/python爬虫/">python爬虫</a>
+          </li>
+        
+          <li>
             <a href="/2018/09/25/正则表达式/">正则表达式</a>
           </li>
         
@@ -481,10 +485,6 @@
         
           <li>
             <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
           </li>
         
       </ul>
