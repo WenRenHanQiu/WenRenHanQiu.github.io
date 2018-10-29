@@ -62,6 +62,117 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-30-this和super" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/30-this和super/" class="article-date">
+  <time datetime="2018-07-21T06:32:01.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/30-this和super/">30,this和super</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>this关键字指当前对象，即当前调用该方法的对象；super关键字在子类调用父类的方法时使用，当子类重写父类方法时，子类方法与父<br>类方法同名，为避免二义性，子类在调用父类方法时以super方法替代。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/30-this和super/" data-id="cjnubq79q000lb0v6ce69a6sf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-29-递归" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/29-递归/" class="article-date">
+  <time datetime="2018-07-21T06:31:37.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/29-递归/">29,递归</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单来说，递归就是方法自己调用自己，但是需要终止条件来防止造成死循环。<br>相关概念：直接递归，间接递归，尾递归，线性递归和树状递归。<br>直接递归即为在方法的return中直接（显式）地调用自己。<br>间接递归即为方法在return语句中未调用自己，而是调用了其他方法，再由其他方法来调用自己（隐式调用）。<br>尾递归：即在方法的return语句中仅调用自己，无任何其他计算（未决操作）；尾递归的优点在于其每次递归不需要存储未决操作的相关信息，即需<br>存储的信息量不会随递归次数的增加而增加，可以节省大量资源。一般将普通递归转化为尾递归的方法是将表达式中其他的参数作为方法的参数。<br>线性和树状递归：线性递归指未决操作中不含递归调用，即每次递归只会产生一个调用；而树状递归则在未决操作中含有递归调用，即每次调用会分<br>支产生多个递归调用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/29-递归/" data-id="cjnubq79s000mb0v6o2kns8p8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-28-迭代器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/28-迭代器/" class="article-date">
+  <time datetime="2018-07-21T06:31:17.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/28-迭代器/">28,迭代器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>java的集合种类众多，它们分别有着不同的底层数据结构，故而它们各自的遍历方式也不同，为了让用户无需了解集合的底层结构也能便捷地遍历集<br>合，java引入了迭代器。<br>迭代器即为Iterator接口的对象，根据遍历的集合类型不同，实例化时所使用的构造方法也不同。<br>通常使用迭代器的格式为：<br>List list = new ArrayList();<br>Iterator listIt = list.iterator();<br>while(listIt.hasNext()){<br>System.out.println(listIt.next());<br>}<br>注：因为ArrayList类间接继承了Iterator接口，重写了iterator()方法，故list.iterator()方法返回的是实例，使Iterator对象listIt可以被实例<br>化。<br>Iterator接口中常用的只有hasNext()和next()两个方法，hasNext()返回boolean型值，判断集合中是否还有元素；next()返回集合中的元素，并将<br>索引指向下一个元素，使下一次调用next()方法时遍历到下一个元素。<br>注：直接使用（即可实例化）的集合类（如ArrayList，LinkedList等）均为间接继承Iterator接口，故这些集合类中未重写hasNext()方法和next()<br>方法，以ArrayList类为例，该类继承了AbstractList类，在AbstractList类中才重写了这两个方法，以下是源代码：<br>public boolean hasNext() {<br>return cursor != size();<br>}<br>public E next() {<br>checkForComodification();<br>try {<br>int i = cursor;<br>E next = get(i);<br>lastRet = i;<br>cursor = i + 1;<br>return next;<br>} catch (IndexOutOfBoundsException e) {<br>checkForComodification();<br>throw new NoSuchElementException();<br>}<br>}<br>当然，对于不同的集合类，重写的hasNext()和next()也不同。<br>注：使用迭代器遍历时不允许对集合元素进行增删（即改变集合的size），否则会产生异常；但是可以改变元素，不会产生异常。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/28-迭代器/" data-id="cjnubq79p000kb0v636d09ejj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-27-基本数据类和包装类（自动拆装箱）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" class="article-date">
@@ -89,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" data-id="cjntjp89i000k1gv6bsdvhce7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" data-id="cjnubq79o000jb0v60yjqao3v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/26-线程和进程/" data-id="cjntjp89i000j1gv6d17974oc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/26-线程和进程/" data-id="cjnubq79n000ib0v6w7iie4kv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -163,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/25-泛型/" data-id="cjntjp882000f1gv6gbksottf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/25-泛型/" data-id="cjnubq79i000eb0v6wkqkhhj3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/" data-id="cjntjp89e000i1gv6oq7hlyv7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/" data-id="cjnubq79m000hb0v62xylmhus" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/23-throw和throws/" data-id="cjntjp89e000h1gv64a50mrgp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/23-throw和throws/" data-id="cjnubq79l000gb0v6ka6xjp92" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/22-给成员变量赋值的方式有几种，分别怎么实现/" data-id="cjntjp87y000d1gv6nzxxpqol" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/22-给成员变量赋值的方式有几种，分别怎么实现/" data-id="cjnubq79k000fb0v6fq6pohcw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,118 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/21-线程的五种状态/" data-id="cjntjp87y000e1gv6qu006ckh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20-Collection和Collections的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/20-Collection和Collections的区别/" class="article-date">
-  <time datetime="2018-07-21T06:26:50.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/20-Collection和Collections的区别/">20,Collection和Collections的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先，二者最大的区别在于Collection是接口，而Collections是实体类。<br>map，set，list，vector均实现了Collection接口，故它们的子类，那些常用的集合类均继承了Collextion接口，但是那些常用的集合类也包装了<br>Collections的一些方法，故Collection是所用集合类的接口，而Collections是为那些集合类提供方法的辅助类。<br>如：ArrayList中的size()，isEmpty()，add()等方法继承自Collection，而它的sort方法则调用Collections的sort方法。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/20-Collection和Collections的区别/" data-id="cjntjp87q000a1gv6ee9z1md1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-19-传统for和增强for的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/19-传统for和增强for的区别/" class="article-date">
-  <time datetime="2018-07-21T06:26:22.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/19-传统for和增强for的区别/">19,传统for和增强for的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>增强for相比于传统for的优点是更容易遍历，在仅遍历集合元素的情况下使用增强for循环效率更高，但是增强for循环无法使用循环变<br>量对集合元素进行修改，而传统for循环却可以。<br>传统for循环格式：<br>for(int i=0;i&lt;n;i++){ //注意：n为与i相同类型的变量或常量<br>//循环体<br>}<br>增强for循环格式：<br>for(int i:n){ //注意：n为集合或数组名；i每次循环时的值为n中元素的值，要求i与n中元素类型相同<br>//循环体 //由于集合中存入的元素类型都会被系统默认为Object类型，故若要以特定类型遍历集合需要使用泛型<br>}</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/19-传统for和增强for的区别/" data-id="cjntjp87u000c1gv66l37n5zl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-18-不借助第三个变量，互换两个变量" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/18-不借助第三个变量，互换两个变量/" class="article-date">
-  <time datetime="2018-07-21T06:25:39.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/18-不借助第三个变量，互换两个变量/">18,不借助第三个变量，互换两个变量</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>例：int a=3，b=4；a=a+b；b=a-b；a=a-b；<br>或：a=a*b; b=a/b; a=a/b; </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/18-不借助第三个变量，互换两个变量/" data-id="cjntjp87u000b1gv6676hx5p0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/21-线程的五种状态/" data-id="cjnubq79f000db0v6rohg58z5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -468,23 +468,23 @@
       <ul>
         
           <li>
+            <a href="/2018/10/29/输入数据与输出数据/">输入数据与输出数据</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/29/java数据库存储与读取/">java数据库存储与读取</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/29/java文件读写/">java文件读写</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
           </li>
         
           <li>
             <a href="/2018/09/25/python爬虫/">python爬虫</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/25/正则表达式/">正则表达式</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/26/树相关算法题/">树相关算法题</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/28/基数排序解析/">基数排序解析</a>
           </li>
         
       </ul>

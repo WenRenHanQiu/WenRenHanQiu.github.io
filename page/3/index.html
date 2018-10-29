@@ -62,6 +62,117 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-20-Collection和Collections的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/20-Collection和Collections的区别/" class="article-date">
+  <time datetime="2018-07-21T06:26:50.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/20-Collection和Collections的区别/">20,Collection和Collections的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，二者最大的区别在于Collection是接口，而Collections是实体类。<br>map，set，list，vector均实现了Collection接口，故它们的子类，那些常用的集合类均继承了Collextion接口，但是那些常用的集合类也包装了<br>Collections的一些方法，故Collection是所用集合类的接口，而Collections是为那些集合类提供方法的辅助类。<br>如：ArrayList中的size()，isEmpty()，add()等方法继承自Collection，而它的sort方法则调用Collections的sort方法。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/20-Collection和Collections的区别/" data-id="cjnubq79d000bb0v63lv1luce" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19-传统for和增强for的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/19-传统for和增强for的区别/" class="article-date">
+  <time datetime="2018-07-21T06:26:22.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/19-传统for和增强for的区别/">19,传统for和增强for的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>增强for相比于传统for的优点是更容易遍历，在仅遍历集合元素的情况下使用增强for循环效率更高，但是增强for循环无法使用循环变<br>量对集合元素进行修改，而传统for循环却可以。<br>传统for循环格式：<br>for(int i=0;i&lt;n;i++){ //注意：n为与i相同类型的变量或常量<br>//循环体<br>}<br>增强for循环格式：<br>for(int i:n){ //注意：n为集合或数组名；i每次循环时的值为n中元素的值，要求i与n中元素类型相同<br>//循环体 //由于集合中存入的元素类型都会被系统默认为Object类型，故若要以特定类型遍历集合需要使用泛型<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/19-传统for和增强for的区别/" data-id="cjnubq79e000cb0v6gbglg3uf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-18-不借助第三个变量，互换两个变量" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/18-不借助第三个变量，互换两个变量/" class="article-date">
+  <time datetime="2018-07-21T06:25:39.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/18-不借助第三个变量，互换两个变量/">18,不借助第三个变量，互换两个变量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>例：int a=3，b=4；a=a+b；b=a-b；a=a-b；<br>或：a=a*b; b=a/b; a=a/b; </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/18-不借助第三个变量，互换两个变量/" data-id="cjnubq79a000ab0v6y40bews3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-17-接口和抽象类的区别" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/21/17-接口和抽象类的区别/" class="article-date">
@@ -89,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/17-接口和抽象类的区别/" data-id="cjntjp87q00091gv6ur71n0ev" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/17-接口和抽象类的区别/" data-id="cjnubq7970008b0v64c59e0dv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/16-使用运算符-和equals-的区别/" data-id="cjntjp87m00081gv68hlwu07e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/16-使用运算符-和equals-的区别/" data-id="cjnubq79u000ob0v6ha9d650p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -163,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/15-Java中String-str-null和String-str-的区别/" data-id="cjntjp87m00071gv6idowzxke" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/15-Java中String-str-null和String-str-的区别/" data-id="cjnubq7960007b0v64h5xqerr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/13-StringBuffer和StringBulider的区别/" data-id="cjntjp87e00021gv6dpjvmm8j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/13-StringBuffer和StringBulider的区别/" data-id="cjnubq7940005b0v6kv017ilz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/14-String和StringBuffer的区别/" data-id="cjntjp87i00051gv6ci0v8490" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/14-String和StringBuffer的区别/" data-id="cjnubq7950006b0v6hoid90hy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/12-数组和集合的区别/" data-id="cjntjp87i00041gv671kuv72y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/12-数组和集合的区别/" data-id="cjnubq7920003b0v68gvzs7m0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,118 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/11-同步方法与同步代码块的区别/" data-id="cjntjp87m00061gv6vf4tg4em" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-10-局部变量和成员变量的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/10-局部变量和成员变量的区别/" class="article-date">
-  <time datetime="2018-07-21T06:20:07.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/10-局部变量和成员变量的区别/">10,局部变量和成员变量的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>成员变量：在类体里面定义的变量叫做成员变量；如果在变量有static关键字修饰，就叫作静态变量或类变量（无需实例化就有存储空间，依托于类<br>）；如果该变量没有static关键字修饰，就叫作非静态变量或实例变量（需实例化对象才能拥有存储空间）；<br>局部变量:方法（包括主方法）内定义的变量、形参、代码块中定义的变量都叫做局部变量；<br>另外，成员变量可以不显式初始化，它们可以由系统设定默认值；局部变量没有默认值，所以必须设定初始赋值（否则会爆出空指针异常）。<br>还有，在内存中的位置也不一样。成员变量在所在类被实例化后，存在堆内存中；局部变量在所在方法调用时，存在栈内存空间中。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/10-局部变量和成员变量的区别/" data-id="cjntjp87i00031gv6pxp30etw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-9-集合体系" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/9-集合体系/" class="article-date">
-  <time datetime="2018-07-21T06:19:24.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/9-集合体系/">9,集合体系</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>所有集合按照存储结构可以分为两大类：继承了Collection接口的单列集合类，和继承了Map接口的双列集合类；其中前者的元素只含有value（值）<br>，后者的元素为键值对，含有value和key。<br>以下列举一些常用的集合类。<br>Collection接口含有两个子接口List和Set；其中List接口派生了ArrayList类（数组结构），LinkedList类（链表结构）和Vector类（数组结构），<br>Set接口派生了HashSet类（哈希表结构），TreeSet类（红黑树结构）。<br>Map接口派生了HashMap类（哈希表结构），TreeMap类（红黑树结构）和HashTable类（数组和链表结构）。<br>以上所有集合类中只有Vector类和HashTable类是线程安全的，底层数据结构相同的情况下，一般线程不安全的集合类效率要比线程安全的集合类高<br>。<br>所有集合类均可动态增长和缩减，集合动态增长的原因：类封装了一个动态再分配的Object[]数组，使每个类对象均含有一个名为capacity的属性，<br>该属性表示并控制数组的长度，比如：当向ArrayList内添加元素时，该属性值便会增加。与数组的length不同，集合含有size和Capacity两个属性<br>，数组的length属性即为数组定义时的大小，与数组中的对象个数无关，但ArrayList的size为集合内对象的个数，Capacity为集合的存储空间大小<br>。Capacity为动态增长和缩减的，其增长规律为：int newCapacity=（oldCapacity*3）/2+1。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/9-集合体系/" data-id="cjntjp8a2000t1gv6gz1mi2tt" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-8-IO体系" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/8-IO体系/" class="article-date">
-  <time datetime="2018-07-21T06:19:10.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/8-IO体系/">8,IO体系</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>IO体系：主要方法为输入输出流方法，输入流方法操作对象为文件（也可创建文件后再输入），输出流方法的操作对象也是文件，输出显<br>示文件内容；而输入输出流又分为字符输入（出）流和字节输入（出）流，即按照字符或字节向文件内进行输入或从文件内读取。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/8-IO体系/" data-id="cjntjp8a6000u1gv64dhxtq2g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/11-同步方法与同步代码块的区别/" data-id="cjnubq7900002b0v6le61n1bq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -468,23 +468,23 @@
       <ul>
         
           <li>
+            <a href="/2018/10/29/输入数据与输出数据/">输入数据与输出数据</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/29/java数据库存储与读取/">java数据库存储与读取</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/29/java文件读写/">java文件读写</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
           </li>
         
           <li>
             <a href="/2018/09/25/python爬虫/">python爬虫</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/25/正则表达式/">正则表达式</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/26/树相关算法题/">树相关算法题</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/28/基数排序解析/">基数排序解析</a>
           </li>
         
       </ul>

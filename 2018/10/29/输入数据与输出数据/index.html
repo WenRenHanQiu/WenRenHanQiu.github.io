@@ -5,19 +5,19 @@
   
 
   
-  <title>Hello,Hexo | Hexo</title>
+  <title>输入数据与输出数据 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎大家参观我的博客。">
+  <meta name="description" content="有时候，我们需要读取特定形式的输入数据，并按特定形式输出，而在算法题中，这一点尤为重要，在输入输出上的要求也很多样，下面罗列了一些要点和错点。1、Scanner对象读取时，注意scanner.next()、scanner.nextLine()、scanner.nextInt()……等等的区别（与scanner.hasNext()等等的区别类似）：    scanner.next()会将输入的下一个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello,Hexo">
-<meta property="og:url" content="http://yoursite.com/2018/07/21/Hello-Hexo/index.html">
+<meta property="og:title" content="输入数据与输出数据">
+<meta property="og:url" content="http://yoursite.com/2018/10/29/输入数据与输出数据/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="欢迎大家参观我的博客。">
+<meta property="og:description" content="有时候，我们需要读取特定形式的输入数据，并按特定形式输出，而在算法题中，这一点尤为重要，在输入输出上的要求也很多样，下面罗列了一些要点和错点。1、Scanner对象读取时，注意scanner.next()、scanner.nextLine()、scanner.nextInt()……等等的区别（与scanner.hasNext()等等的区别类似）：    scanner.next()会将输入的下一个">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-21T03:03:28.731Z">
+<meta property="og:updated_time" content="2018-10-29T13:12:54.109Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello,Hexo">
-<meta name="twitter:description" content="欢迎大家参观我的博客。">
+<meta name="twitter:title" content="输入数据与输出数据">
+<meta name="twitter:description" content="有时候，我们需要读取特定形式的输入数据，并按特定形式输出，而在算法题中，这一点尤为重要，在输入输出上的要求也很多样，下面罗列了一些要点和错点。1、Scanner对象读取时，注意scanner.next()、scanner.nextLine()、scanner.nextInt()……等等的区别（与scanner.hasNext()等等的区别类似）：    scanner.next()会将输入的下一个">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Hello-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-输入数据与输出数据" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/21/Hello-Hexo/" class="article-date">
-  <time datetime="2018-07-21T02:59:14.000Z" itemprop="datePublished">2018-07-21</time>
+    <a href="/2018/10/29/输入数据与输出数据/" class="article-date">
+  <time datetime="2018-10-29T12:13:18.000Z" itemprop="datePublished">2018-10-29</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello,Hexo
+      输入数据与输出数据
     </h1>
   
 
@@ -86,12 +86,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>欢迎大家参观我的博客。</p>
+        <p>有时候，我们需要读取特定形式的输入数据，并按特定形式输出，而在算法题中，这一点尤为重要，在输入输出上的要求也很多样，下面罗列了一些要点和错点。<br>1、Scanner对象读取时，注意scanner.next()、scanner.nextLine()、scanner.nextInt()……等等的区别（与scanner.hasNext()等等的区别类似）：<br>    scanner.next()会将输入的下一个元素读取为字符串（会被空格和回车截断，且无论输入何种类型数据均读取为字符串）,若输入的是空格或回车，会自动跳过。<br>    scanner.nextInt()与scanner.next()类似，但是只读取int型的数据，否则无法读取，若直接读取非int型数据，会报错，故一般在读取时会先用scanner.hasNextInt()判定（scanner.hasNextDouble()等类似）。<br>    scanner.nextLine()会直接读取一整行，并读取为字符串，即使无任何输入（即直接回车）也会读取空字符串。注意：当使用scanner.nextLine().split(“ “)时，若行前有空格，则返回的数组前两个元素为空字符串（不会读取到空格字符串），同理，使用scanner.nextLine().split(“”)时也会读取到空格字符串（不会读取到空字符串）,<br>    而且，一定要注意scanner.nextLine()的读取范围，是一整行，这就造成了在一行中一个对象可读取两次的情况：比如你输入了1，用scanner.nextInt()读取，会读取到1，但如果你再用scanner.nextLine()读取的话，还能读取到一个空字符串（scanner.next()不能）,这点在scanner.nextLine()与其他方法混用时一定要注意。<br>2、当需要将结果写入文件时，注意换行的转义字符：“\n”有换行的作用，但是用记事本打开的话无法识别（用notepad++可识别），需要使用“\r\n”才能使记事本识别到换行。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/Hello-Hexo/" data-id="cjnubq7bf000xb0v6mjyttu7v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/29/输入数据与输出数据/" data-id="cjnubq7bz0019b0v628sq98u6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -100,19 +100,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/21/快速排序程序分析/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          快速排序程序分析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/10/29/java数据库存储与读取/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">java数据库存储与读取</div>
     </a>
   
 </nav>

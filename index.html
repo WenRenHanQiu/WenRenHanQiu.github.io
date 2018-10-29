@@ -62,6 +62,116 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-输入数据与输出数据" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/29/输入数据与输出数据/" class="article-date">
+  <time datetime="2018-10-29T12:13:18.000Z" itemprop="datePublished">2018-10-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/29/输入数据与输出数据/">输入数据与输出数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有时候，我们需要读取特定形式的输入数据，并按特定形式输出，而在算法题中，这一点尤为重要，在输入输出上的要求也很多样，下面罗列了一些要点和错点。<br>1、Scanner对象读取时，注意scanner.next()、scanner.nextLine()、scanner.nextInt()……等等的区别（与scanner.hasNext()等等的区别类似）：<br>    scanner.next()会将输入的下一个元素读取为字符串（会被空格和回车截断，且无论输入何种类型数据均读取为字符串）,若输入的是空格或回车，会自动跳过。<br>    scanner.nextInt()与scanner.next()类似，但是只读取int型的数据，否则无法读取，若直接读取非int型数据，会报错，故一般在读取时会先用scanner.hasNextInt()判定（scanner.hasNextDouble()等类似）。<br>    scanner.nextLine()会直接读取一整行，并读取为字符串，即使无任何输入（即直接回车）也会读取空字符串。注意：当使用scanner.nextLine().split(“ “)时，若行前有空格，则返回的数组前两个元素为空字符串（不会读取到空格字符串），同理，使用scanner.nextLine().split(“”)时也会读取到空格字符串（不会读取到空字符串）,<br>    而且，一定要注意scanner.nextLine()的读取范围，是一整行，这就造成了在一行中一个对象可读取两次的情况：比如你输入了1，用scanner.nextInt()读取，会读取到1，但如果你再用scanner.nextLine()读取的话，还能读取到一个空字符串（scanner.next()不能）,这点在scanner.nextLine()与其他方法混用时一定要注意。<br>2、当需要将结果写入文件时，注意换行的转义字符：“\n”有换行的作用，但是用记事本打开的话无法识别（用notepad++可识别），需要使用“\r\n”才能使记事本识别到换行。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/29/输入数据与输出数据/" data-id="cjnubq7bz0019b0v628sq98u6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java数据库存储与读取" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/29/java数据库存储与读取/" class="article-date">
+  <time datetime="2018-10-29T04:36:01.000Z" itemprop="datePublished">2018-10-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/29/java数据库存储与读取/">java数据库存储与读取</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/29/java数据库存储与读取/" data-id="cjnubq7bi000zb0v67i0lxzac" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java文件读写" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/29/java文件读写/" class="article-date">
+  <time datetime="2018-10-29T04:35:24.000Z" itemprop="datePublished">2018-10-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/29/java文件读写/">java文件读写</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1,直接使用FileReader和FileWriter进行读写：<br>如：File f=new File(“D:\list.txt”);<br>    FileWriter fw;<br>    try{<br>        fw=new FileWriter(f);<br>        fw.write(“Hello world!\r\n”);<br>    }<br>    catch(Exception e){<br>        System.out.print(“IOException”);<br>    }<br>附：写入的字符串换行使用“\n”即可，但要使记事本（txt文件）识别，需要使用“\r\n”</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/29/java文件读写/" data-id="cjnubq7bb000vb0v6y89l4kch" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-设计模式整合详解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/10/设计模式整合详解/" class="article-date">
@@ -95,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/10/设计模式整合详解/" data-id="cjntjp8b200191gv616ly1vq3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/10/设计模式整合详解/" data-id="cjnubq7bw0016b0v61950t09b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/25/python爬虫/" data-id="cjntjp8ae000z1gv6jz01y6ka" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/25/python爬虫/" data-id="cjnubq7bl0010b0v6wzy6cpq7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -171,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/25/正则表达式/" data-id="cjntjp8au00151gv6wez48pmu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/25/正则表达式/" data-id="cjnubq7bx0017b0v6rlmg11fu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -213,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/树相关算法题/" data-id="cjntjp8ay00181gv6bjahqau0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/树相关算法题/" data-id="cjnubq7c2001bb0v6w8yz969m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -250,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/28/基数排序解析/" data-id="cjntjp8au00141gv6bl7tfdft" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/28/基数排序解析/" data-id="cjnubq7bu0015b0v6nlju34gk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -288,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/java各种集合的扩容机制/" data-id="cjntjp8am00111gv6m29w1efj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/java各种集合的扩容机制/" data-id="cjnubq7bg000yb0v6ythursgf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -325,118 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/java的引用传递和值传递以及String常量池/" data-id="cjntjp8ai00101gv652kplpg3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-30-this和super" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/30-this和super/" class="article-date">
-  <time datetime="2018-07-21T06:32:01.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/30-this和super/">30,this和super</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>this关键字指当前对象，即当前调用该方法的对象；super关键字在子类调用父类的方法时使用，当子类重写父类方法时，子类方法与父<br>类方法同名，为避免二义性，子类在调用父类方法时以super方法替代。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/30-this和super/" data-id="cjntjp89q000o1gv6yqdjxwc6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-29-递归" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/29-递归/" class="article-date">
-  <time datetime="2018-07-21T06:31:37.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/29-递归/">29,递归</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>简单来说，递归就是方法自己调用自己，但是需要终止条件来防止造成死循环。<br>相关概念：直接递归，间接递归，尾递归，线性递归和树状递归。<br>直接递归即为在方法的return中直接（显式）地调用自己。<br>间接递归即为方法在return语句中未调用自己，而是调用了其他方法，再由其他方法来调用自己（隐式调用）。<br>尾递归：即在方法的return语句中仅调用自己，无任何其他计算（未决操作）；尾递归的优点在于其每次递归不需要存储未决操作的相关信息，即需<br>存储的信息量不会随递归次数的增加而增加，可以节省大量资源。一般将普通递归转化为尾递归的方法是将表达式中其他的参数作为方法的参数。<br>线性和树状递归：线性递归指未决操作中不含递归调用，即每次递归只会产生一个调用；而树状递归则在未决操作中含有递归调用，即每次调用会分<br>支产生多个递归调用。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/29-递归/" data-id="cjntjp89m000l1gv6nb6hm8tt" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-28-迭代器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/28-迭代器/" class="article-date">
-  <time datetime="2018-07-21T06:31:17.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/28-迭代器/">28,迭代器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>java的集合种类众多，它们分别有着不同的底层数据结构，故而它们各自的遍历方式也不同，为了让用户无需了解集合的底层结构也能便捷地遍历集<br>合，java引入了迭代器。<br>迭代器即为Iterator接口的对象，根据遍历的集合类型不同，实例化时所使用的构造方法也不同。<br>通常使用迭代器的格式为：<br>List list = new ArrayList();<br>Iterator listIt = list.iterator();<br>while(listIt.hasNext()){<br>System.out.println(listIt.next());<br>}<br>注：因为ArrayList类间接继承了Iterator接口，重写了iterator()方法，故list.iterator()方法返回的是实例，使Iterator对象listIt可以被实例<br>化。<br>Iterator接口中常用的只有hasNext()和next()两个方法，hasNext()返回boolean型值，判断集合中是否还有元素；next()返回集合中的元素，并将<br>索引指向下一个元素，使下一次调用next()方法时遍历到下一个元素。<br>注：直接使用（即可实例化）的集合类（如ArrayList，LinkedList等）均为间接继承Iterator接口，故这些集合类中未重写hasNext()方法和next()<br>方法，以ArrayList类为例，该类继承了AbstractList类，在AbstractList类中才重写了这两个方法，以下是源代码：<br>public boolean hasNext() {<br>return cursor != size();<br>}<br>public E next() {<br>checkForComodification();<br>try {<br>int i = cursor;<br>E next = get(i);<br>lastRet = i;<br>cursor = i + 1;<br>return next;<br>} catch (IndexOutOfBoundsException e) {<br>checkForComodification();<br>throw new NoSuchElementException();<br>}<br>}<br>当然，对于不同的集合类，重写的hasNext()和next()也不同。<br>注：使用迭代器遍历时不允许对集合元素进行增删（即改变集合的size），否则会产生异常；但是可以改变元素，不会产生异常。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/28-迭代器/" data-id="cjntjp89m000m1gv6nnizb0qu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/java的引用传递和值传递以及String常量池/" data-id="cjnubq7bq0012b0v6bwkzl9u1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -482,23 +481,23 @@
       <ul>
         
           <li>
+            <a href="/2018/10/29/输入数据与输出数据/">输入数据与输出数据</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/29/java数据库存储与读取/">java数据库存储与读取</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/29/java文件读写/">java文件读写</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
           </li>
         
           <li>
             <a href="/2018/09/25/python爬虫/">python爬虫</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/25/正则表达式/">正则表达式</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/26/树相关算法题/">树相关算法题</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/28/基数排序解析/">基数排序解析</a>
           </li>
         
       </ul>
