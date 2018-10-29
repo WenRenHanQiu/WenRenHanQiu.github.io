@@ -62,6 +62,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-27-基本数据类和包装类（自动拆装箱）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" class="article-date">
+  <time datetime="2018-07-21T06:30:32.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/27-基本数据类和包装类（自动拆装箱）/">27,基本数据类和包装类（自动拆装箱）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>装箱即为将基本数据类型转化为其对应的引用类型，拆箱即为将特定的某些引用类型转化为其对应的基本数据类型。<br>java中每种基本数据类型均对应有包装器类型（引用类型），而一般引用类型在使用格式为ArrayList list=new ArraayList();而ArrayList list的<br>形式会造成空指针异常，但在定义Integer类型变量时我们一般会写：Integer i=10；并没有用new指令（JDK5新特性），这就是自动装箱。同样的道<br>理，Integer类型变量i在执行i=i+5；语句时，5为int型，需要将i拆箱为int型进行计算，再将其装箱为Integer类型，该过程中拆装箱均不需要用户<br>写相关代码，这就是自动拆装箱。<br>自动拆装箱优点：增强了代码的可读性，简化了代码。<br>注：当数值在byte范围内(-128-127)时，自动装箱时不会新创建对象。（即数值相同的两个Integer型变量使用==运算符的返回值为true）<br>基本数据类（8种）及其存储空间：int（4字节）byte（1字节）short（2字节）long（8字节）float（4字节）double（8字节）char（2字节）<br>boolean（不确定）<br>注：（1）如果书写long型的值，则需要在数值后面添加字母L，大小写均可以。<br>（2）小数型的取值范围以科学计数形式进行描述。<br>（3）float类型的小数，需要在小数后加字母F，不区分大小写，例如4.09f或4.09F，但double类型赋小数值时不必加f，可以直接写。<br>（4）布尔型占用的空间取决于Java虚拟机（JVM）的实现，可能是1bit，也可能是8bit，且其默认值为false。<br>（5）基本数据类未包装任何方法及特殊属性，仅包含数据。<br>包装类：即包装了除数据外的其他属性和方法的类。除了8种基本数据类型以外，其他数据类型均为包装类（引用类型）特殊的，Integer，Byte，<br>Short，Long，Boolean，Character，Float，Double这些引用类型可以拆箱为基本数据类型。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" data-id="cjntjp89i000k1gv6bsdvhce7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-26-线程和进程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/21/26-线程和进程/" class="article-date">
@@ -89,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/26-线程和进程/" data-id="cjmhn0wpj000jkkv6w9bzqkbt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/26-线程和进程/" data-id="cjntjp89i000j1gv6d17974oc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/25-泛型/" data-id="cjmhn0wpi000ikkv6zlfug9n6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/25-泛型/" data-id="cjntjp882000f1gv6gbksottf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -163,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/" data-id="cjmhn0wph000hkkv6t7pvc8f4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/" data-id="cjntjp89e000i1gv6oq7hlyv7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/23-throw和throws/" data-id="cjmhn0wpf000gkkv6iw5lvy1p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/23-throw和throws/" data-id="cjntjp89e000h1gv64a50mrgp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/22-给成员变量赋值的方式有几种，分别怎么实现/" data-id="cjmhn0wpd000fkkv6lecllv19" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/22-给成员变量赋值的方式有几种，分别怎么实现/" data-id="cjntjp87y000d1gv6nzxxpqol" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/21-线程的五种状态/" data-id="cjmhn0wpb000ekkv62hprc21w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/21-线程的五种状态/" data-id="cjntjp87y000e1gv6qu006ckh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/20-Collection和Collections的区别/" data-id="cjmhn0wpa000dkkv6362dzta5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/20-Collection和Collections的区别/" data-id="cjntjp87q000a1gv6ee9z1md1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/19-传统for和增强for的区别/" data-id="cjmhn0wp7000bkkv64m061wio" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/19-传统for和增强for的区别/" data-id="cjntjp87u000c1gv66l37n5zl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -385,44 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/18-不借助第三个变量，互换两个变量/" data-id="cjmhn0wp5000akkv6sirvsr89" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-17-接口和抽象类的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/17-接口和抽象类的区别/" class="article-date">
-  <time datetime="2018-07-21T06:25:09.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/17-接口和抽象类的区别/">17,接口和抽象类的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>接口中只能包含抽象方法，抽象类中必须包含抽象方法，但也可包含普通方法；一个类只能继承一个抽象类，但是可以继承多个接口。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/17-接口和抽象类的区别/" data-id="cjmhn0wp40009kkv6vu1lchqm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/18-不借助第三个变量，互换两个变量/" data-id="cjntjp87u000b1gv6676hx5p0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -455,7 +455,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -466,6 +466,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
+          </li>
         
           <li>
             <a href="/2018/09/25/python爬虫/">python爬虫</a>
@@ -481,10 +485,6 @@
         
           <li>
             <a href="/2018/07/28/基数排序解析/">基数排序解析</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
           </li>
         
       </ul>

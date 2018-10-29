@@ -62,6 +62,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-设计模式整合详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/10/设计模式整合详解/" class="article-date">
+  <time datetime="2018-10-10T13:24:34.000Z" itemprop="datePublished">2018-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1，工厂模式：<br>工厂模式在不同条件下可以创建不同的实体，即实现多态。<br>代码：<br>public interface Shape {        //所有实例类的公共接口<br>   void draw();<br>}<br>public class Rectangle implements Shape {        //第一个实例类</p>
+<p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Rectangle::draw() method.”);<br>   }<br>}<br>public class Square implements Shape {            //第二个实例类</p>
+<p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Square::draw() method.”);<br>   }<br>}<br>public class Circle implements Shape {            //第三个实例类</p>
+<p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Circle::draw() method.”);<br>   }<br>}<br>public class ShapeFactory {                        //工厂类（根据不同的参数创建不同的实例）</p>
+<p>   //使用 getShape 方法获取形状类型的对象<br>   public Shape getShape(String shapeType){<br>      if(shapeType == null){<br>         return null;<br>      }<br>      if(shapeType.equalsIgnoreCase(“CIRCLE”)){<br>         return new Circle();<br>      } else if(shapeType.equalsIgnoreCase(“RECTANGLE”)){<br>         return new Rectangle();<br>      } else if(shapeType.equalsIgnoreCase(“SQUARE”)){<br>         return new Square();<br>      }<br>      return null;<br>   }<br>}<br>从以上代码中我们可以看出，工厂模式的实现步骤为：1，创建公共接口。2，创建各个实例类，均继承公共接口。3，创建工厂类，实现根据不同参数创建不同实例（多态）。<br>工厂模式优点：将公共接口，实例类，工厂类分开，提高了内聚，降低了耦合。</p>
+<p>2,单例模式：<br>单例模式可以保证在JVM中只有一个该类只有一个实例存在，可以避免重复和频繁创建对象，减少系统开销且</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/10/设计模式整合详解/" data-id="cjntjp8b200191gv616ly1vq3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-python爬虫" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/09/25/python爬虫/" class="article-date">
@@ -84,11 +126,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>爬虫是一种获取网络上数据的方法。<br>在网络上获取数据有两种方法：<br>1，浏览器提交请求—&gt;下载网页代码—&gt;解析成页面<br>2，模拟浏览器发送请求(获取网页代码)-&gt;提取有用的数据-&gt;存放于数据库或文件中<br>爬虫使用的是方法二，具体步骤是：发起请求-&gt;获取相应内容-&gt;解析内容-&gt;保存数据<br>1，发起请求：使用http库向目标站点发起请求，即发送一个Request，请求方式有get，post等等，其中Request包含请求头和请求体，但是Request模块无法执行JS和CSS。<br>2，获取相应内容：请求发出后，若服务器正常响应，则可以获得一个Response，其中包括：html，json，图片，视频。<br>3，解析内容：解析html：解析为正则表达式（RE），或使用第三方解析工具。<br>             解析json：解析为json模块。<br>             解析二进制数据：以wb形式写入文件。<br>4，保存数据：将获取的数据存入数据库（MySQL，Redis等等）或存入文件。<br>其中每一步的常用工具为：<br>请求库：requests：较为方便，使用简单，安装方便，缺点是无法请求CSS和JS这些动态加载的信息。<br>        selenium：使用起来较为复杂，但是可以驱动浏览器解析渲染CSS和JS，但有性能劣势（有用没用的网页都会加载）。<br>解析库：re（使用正则表达式）：使用方式直接简单，速度快效率高，但是逻辑较复杂，正则表达式使用较困难。<br>        beautifulsoup：无需使用正则表达式，但使用方式较复杂（参数较多）。<br>        pyquery：python独有，适合擅长前端的人使用。<br>存储库：文件，MySQL，Mongodb，Redis<br>附：python内置urllib库，可用于发送请求和解析（即该库包含请求库和解析库的功能）。</p>
+<p>爬虫概念：一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。<br>爬取的对象：浏览器通过解析前端页面代码生成我们所看到的页面，而爬虫要爬取的就是原始的前端页面代码。<br>requests库的使用：<br>requests库的作用是发送各种请求，主要分为三种·：<br>1，get请求，具体用法为r = requests.get(“<a href="https://unsplash.com&quot;)（传入一个String类型的url，返回一个Response类型的对象）" target="_blank" rel="noopener">https://unsplash.com&quot;)（传入一个String类型的url，返回一个Response类型的对象）</a><br>或payload = {‘key1’: ‘value1’, ‘key2’: ‘value2’}    r = requests.get(“<a href="http://httpbin.org/get&quot;" target="_blank" rel="noopener">http://httpbin.org/get&quot;</a>, params=payload)（传入url和一个字典，等价于传入了一个指定参数的url，即<a href="http://httpbin.org/get?key1=value1&amp;key2=value2）" target="_blank" rel="noopener">http://httpbin.org/get?key1=value1&amp;key2=value2）</a><br>2，post请求，</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/25/python爬虫/" data-id="cjmhn0wq50012kkv6mih2iayt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/25/python爬虫/" data-id="cjntjp8ae000z1gv6jz01y6ka" class="article-share-link">Share</a>
       
       
     </footer>
@@ -121,12 +165,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>基本：<br>+:其前面的字符要匹配1次或多次。<br>*:其前面的字符要匹配0次，1次或多次。<br>?:其前面的字符要匹配0次或1次。<br>正则表达式由两种字符构成：普通字符（如：数字和字母）和特殊字符（元字符）。<br>转义字符：</p>
-<p>\cx:<br>\f:匹配换页符<br>\n:<br>\r:<br>\s:<br>\S:<br>\t:<br>\v:</p>
+<p>\cx:<br>\f:匹配换页符<br>\n:<br>\r:<br>\s:<br>\S:<br>\t:<br>\v:<br>转义字符在正则表达式中一样可以使用，用法与c中相同。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/25/正则表达式/" data-id="cjmhn0wqb0018kkv6lumafzbn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/25/正则表达式/" data-id="cjntjp8au00151gv6wez48pmu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -168,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/树相关算法题/" data-id="cjmhn0wq90016kkv6o57taa24" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/树相关算法题/" data-id="cjntjp8ay00181gv6bjahqau0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -205,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/28/基数排序解析/" data-id="cjmhn0wq60013kkv6v4sx7a44" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/28/基数排序解析/" data-id="cjntjp8au00141gv6bl7tfdft" class="article-share-link">Share</a>
       
       
     </footer>
@@ -243,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/java各种集合的扩容机制/" data-id="cjmhn0wq2000zkkv61vrrc3pd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/java各种集合的扩容机制/" data-id="cjntjp8am00111gv6m29w1efj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -280,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/java的引用传递和值传递以及String常量池/" data-id="cjmhn0wq30010kkv69qvlsibh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/java的引用传递和值传递以及String常量池/" data-id="cjntjp8ai00101gv652kplpg3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -317,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/30-this和super/" data-id="cjmhn0wpq000okkv6k37audck" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/30-this和super/" data-id="cjntjp89q000o1gv6yqdjxwc6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -354,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/29-递归/" data-id="cjmhn0wpn000mkkv6wfu0fpe3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/29-递归/" data-id="cjntjp89m000l1gv6nb6hm8tt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -391,44 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/28-迭代器/" data-id="cjmhn0wpm000lkkv6aq81mmt1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-27-基本数据类和包装类（自动拆装箱）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" class="article-date">
-  <time datetime="2018-07-21T06:30:32.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/27-基本数据类和包装类（自动拆装箱）/">27,基本数据类和包装类（自动拆装箱）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>装箱即为将基本数据类型转化为其对应的引用类型，拆箱即为将特定的某些引用类型转化为其对应的基本数据类型。<br>java中每种基本数据类型均对应有包装器类型（引用类型），而一般引用类型在使用格式为ArrayList list=new ArraayList();而ArrayList list的<br>形式会造成空指针异常，但在定义Integer类型变量时我们一般会写：Integer i=10；并没有用new指令（JDK5新特性），这就是自动装箱。同样的道<br>理，Integer类型变量i在执行i=i+5；语句时，5为int型，需要将i拆箱为int型进行计算，再将其装箱为Integer类型，该过程中拆装箱均不需要用户<br>写相关代码，这就是自动拆装箱。<br>自动拆装箱优点：增强了代码的可读性，简化了代码。<br>注：当数值在byte范围内(-128-127)时，自动装箱时不会新创建对象。（即数值相同的两个Integer型变量使用==运算符的返回值为true）<br>基本数据类（8种）及其存储空间：int（4字节）byte（1字节）short（2字节）long（8字节）float（4字节）double（8字节）char（2字节）<br>boolean（不确定）<br>注：（1）如果书写long型的值，则需要在数值后面添加字母L，大小写均可以。<br>（2）小数型的取值范围以科学计数形式进行描述。<br>（3）float类型的小数，需要在小数后加字母F，不区分大小写，例如4.09f或4.09F，但double类型赋小数值时不必加f，可以直接写。<br>（4）布尔型占用的空间取决于Java虚拟机（JVM）的实现，可能是1bit，也可能是8bit，且其默认值为false。<br>（5）基本数据类未包装任何方法及特殊属性，仅包含数据。<br>包装类：即包装了除数据外的其他属性和方法的类。除了8种基本数据类型以外，其他数据类型均为包装类（引用类型）特殊的，Integer，Byte，<br>Short，Long，Boolean，Character，Float，Double这些引用类型可以拆箱为基本数据类型。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" data-id="cjmhn0wpl000kkkv6wb8ds8ha" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/28-迭代器/" data-id="cjntjp89m000m1gv6nnizb0qu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -461,7 +468,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -472,6 +479,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
+          </li>
         
           <li>
             <a href="/2018/09/25/python爬虫/">python爬虫</a>
@@ -487,10 +498,6 @@
         
           <li>
             <a href="/2018/07/28/基数排序解析/">基数排序解析</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/21/java各种集合的扩容机制/">java各种集合的扩容机制</a>
           </li>
         
       </ul>
