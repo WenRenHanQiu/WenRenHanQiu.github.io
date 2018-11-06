@@ -62,6 +62,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-java的引用传递和值传递以及String常量池" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/java的引用传递和值传递以及String常量池/" class="article-date">
+  <time datetime="2018-07-21T06:41:45.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，从整体来说，因为基本数据类型变量所占据的存储空间所存储的是需要存储的实际值，而引用数据类型所存储的是指向需要存储实际值的存<br>储空间的地址，所以基本数据类型之间使用值传递，引用数据类型之间使用引用传递，但String类型和数组是例外。<br>先说明一下普通的值传递和引用传递原理：使用值传递的形参和实参均直接存储实际需要存储或修改的值，而形参和实参占用的是两份不同的存储<br>空间，且形参的存储空间在其所在的方法执行完毕后会被释放，故而只是形参存储的值被改变后其存储空间又被释放而已，实参存储的值不会改变<br>；而使用引用传递的形参和实参内存储的是需要存储或修改的值的存储空间的地址，即形参和实参虽然各自使用不同的存储空间，但均指向同一份<br>存储了实际值的存储空间，故而在方法执行完毕之后，二者所指向的同一份存储空间所存储的值也被改变了，即使形参存储空间被释放，实参所存<br>储（指向）的值也被改变了。<br>但是，String类型本身含有常量池，即含有所有字符串的池，常量池中的存储的所有值不会被改变，变量只能改变指向方向，所以除非使用new指令<br>开辟额外的存储空间，否则的话String类型变量会指向常量池中与存储值相同的，本来就存在的那份存储空间。而在方法执行完毕后，只是形参的<br>指向（存储的地址）改变了，故而实参所存储（指向）的值仍未改变。<br>数组实参传递给形参的是数组名，即指向数组实际存储值存储空间的地址，故其原理和普通引用传递是相同的，所以无论是引用数据类型数组还是<br>基本数据类型数组均使用引用传递。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/java的引用传递和值传递以及String常量池/" data-id="cjo5ot7rw0012vov6jfn3z3ad" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-30-this和super" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/21/30-this和super/" class="article-date">
@@ -89,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/30-this和super/" data-id="cjnubq79q000lb0v6ce69a6sf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/30-this和super/" data-id="cjo5ot7rm000qvov61a2saau5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/29-递归/" data-id="cjnubq79s000mb0v6o2kns8p8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/29-递归/" data-id="cjo5ot7rm000nvov6bf6m3bvx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -163,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/28-迭代器/" data-id="cjnubq79p000kb0v636d09ejj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/28-迭代器/" data-id="cjo5ot7rm000mvov6ta66cwlv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" data-id="cjnubq79o000jb0v60yjqao3v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/27-基本数据类和包装类（自动拆装箱）/" data-id="cjo5ot7rc000lvov6l1gh5pzr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/26-线程和进程/" data-id="cjnubq79n000ib0v6w7iie4kv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/26-线程和进程/" data-id="cjo5ot7rc000gvov60n2bhdpc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/25-泛型/" data-id="cjnubq79i000eb0v6wkqkhhj3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/25-泛型/" data-id="cjo5ot7rc000hvov6nk3mihg1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/" data-id="cjnubq79m000hb0v62xylmhus" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/24-异常及异常的注意事项/" data-id="cjo5ot7rc000jvov6vxtowoz8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/23-throw和throws/" data-id="cjnubq79l000gb0v6ka6xjp92" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/23-throw和throws/" data-id="cjo5ot7rc000ivov6gl62raqs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -385,44 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/22-给成员变量赋值的方式有几种，分别怎么实现/" data-id="cjnubq79k000fb0v6fq6pohcw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-21-线程的五种状态" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/21-线程的五种状态/" class="article-date">
-  <time datetime="2018-07-21T06:27:28.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/21-线程的五种状态/">21,线程的五种状态</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>线程的五种状态分别为：创建，就绪，运行，阻塞，死亡。<br>新建状态：线程在刚被创建时，会短暂地处于这种状态，此时线程已被分配系统资源并完成了初始化，有资格获得CPU运行时间。<br>就绪状态：线程在执行start()方法之后就会进入这种状态，此时只要线程得到CPU时间就会进入运行状态。<br>运行状态：就是线程运行时的状态，可能被阻塞也可能执行完毕进入死亡状态。<br>阻塞状态：运行状态的进程如果遇到以下几种情况就会进入阻塞状态：调用了wait()，join()或sleep()方法，调用了IO阻塞方法，等待执行上锁的<br>代码块或方法。阻塞状态在以下情况下会进入就绪状态：获得了同步锁，阻塞IO方法返回，sleep()方法等待时间到，调用notify()或notifyAll()方<br>法，调用join()方法的线程终止。<br>死亡状态：运行状态的线程执行完毕或产生Exception或Error会进入死亡状态。<br>相关方法说明：sleep()方法：以数字作为参数，代表等待的毫秒数，使线程在规定的时间内进入阻塞状态，期间线程的锁不释放，且notify()或<br>notifyAll()无法将线程唤醒。<br>wait()方法：有两种使用方式：第一种的作用和sleep()方法相似，但是期间线程的锁释放，而且可以被notify()或notifyAll()唤醒；第二种方式无<br>参数，此时线程将会无线地等待下去，除非被notify()或notifyAll()唤醒。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/21-线程的五种状态/" data-id="cjnubq79f000db0v6rohg58z5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/22-给成员变量赋值的方式有几种，分别怎么实现/" data-id="cjo5ot7rc000evov6380wn6am" class="article-share-link">Share</a>
       
       
     </footer>
@@ -455,7 +455,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -466,6 +466,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/11/06/面向对象设计原则/">面向对象设计原则</a>
+          </li>
         
           <li>
             <a href="/2018/10/29/输入数据与输出数据/">输入数据与输出数据</a>
@@ -481,10 +485,6 @@
         
           <li>
             <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/25/python爬虫/">python爬虫</a>
           </li>
         
       </ul>

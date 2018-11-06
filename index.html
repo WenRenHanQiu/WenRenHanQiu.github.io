@@ -62,6 +62,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-面向对象设计原则" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/06/面向对象设计原则/" class="article-date">
+  <time datetime="2018-11-06T11:27:30.000Z" itemprop="datePublished">2018-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/06/面向对象设计原则/">面向对象设计原则</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在进行面向对象程序设计时，为了更好地实现面向对象编程思想，贴合实际对象需求，优化代码，需要遵循一些设计原则。<br>例：我们需要设计一个人事管理系统，其中的一个功能是对各种不同的类型员工，计算其当月的工资—不同类型的员工，拥有不同的薪金计算制度。<br>结构化设计思想为：1.获得人事系统中所有可能的员工类型。<br>2.根据不同的员工类型所对应的不同薪金制度，计算其工资。<br>结构化设计代码为：<br>enum EmployeeType{<br>  Engineer;<br>  Sales;<br>  Manager;<br>  …<br>};<br>//计算工资程序<br>If(type==EmployeeType.Enginner)<br>{<br>    //……<br>}<br>else if (type==EmployeeType.Sales)<br>{<br>    //……<br>}<br>面向对象设计思想为：1.根据不同员工设计不同的类，并使这些类继承自一个Employee抽象类，其中有一个抽象方法getSalary。<br>2.在各个不同的员工中，根据自己的薪金制度，重写(override)getSalary方法。<br>面向对象设计代码为：<br>abstract public class Employee{<br>    …<br>    public abstract int getSalary();<br>}</p>
+<p>public class Sales : Employee{<br>    …<br>    override public int getSalary(){<br>    …<br>    }<br>}<br>public class Engineer : Employee{<br>    …<br>    override public int getSalary(){<br>    …<br>    }<br>}<br>// 显示工资程序<br>Employee e = emFactory.getEmployee(id);<br>System.out.println(e.getSalary());<br>从以上示例中我们可以看出：结构化设计思想更侧重于直接地解决问题，直接实现了需求；面向对象设计思想更侧重于贴合实际，构造了提出需求的对象，在此基础上再解决问题。<br>看起来貌似结构化设计思想的实现更为简洁，但是却不利于应对之后的改变，它只是解决了当前的需求，而且当面对多个问题时每段代码是各自独立解决问题的，导致代码零散；而面向对象设计思想可以整合多种不同的需求到对象中，更贴合实际，让各个功能联系更加紧密，代码更加规范。<br>我们可以看出，在这个问题上似乎结构化设计思想的代码更为简洁，但是一旦有新的需求提出，结构化的代码就会变得零散，而面向对象的代码却能保持规范划一。随着需求的增多，面向对象思想的代码相比之下会更为简洁和规范。<br>所以，对于这个问题，面向对象设计思想才是更加合适的。<br>当然，这并非说结构化思想逊于面向对象设计思想，二者各有优劣，例如：当单纯解决算法问题的时候结构化思想往往就比面向对象思想更为简洁，因为没有具体对象，只有单纯的需求；而当遇到一些贴合实际的问题，有“对象”特点体现或需求较多时，面向对象设计思想就更为适合。所以说，关键在于全面且深入地认识问题及需求，找到最为合适的设计思想才是最重要的。</p>
+<p>接下来介绍为了更好地体现面向对象设计原则所需遵循的几项准则：<br>一、开闭原则：<br>这一条放在第一位来理解，它的含义是对扩展开放，对修改关闭。解释一下就是，我们写完的代码，不能因为需求变化就修改。我们可以通过新增代码的方式来解决变化的需求。<br>当然，这是一种理想的状态，在现实中，我们要尽量的缩小这种修改。<br>再解释一下这条原则的意义所在，我们采用逆向思维方式来想。如果每次需求变动都去修改原有的代码，那原有的代码就存在被修改错误的风险，当然这其中存在有意和无意的修改，都会导致原有正常运行的功能失效的风险，这样很有可能会展开可怕的蝴蝶效应，使维护工作剧增。<br>说到底，开闭原则除了表面上的可扩展性强以外，在企业中更看重的是维护成本。<br>所以，开闭原则是设计模式的第一大原则，它的潜台词是：控制需求变动风险，缩小维护成本。<br>以下几种原则，都是为此原则服务的。</p>
+<p>二、里氏替换选择：<br>此原则的含义是子类可以在任何地方替换它的父类。解释一下，这是多态的前提，我们后面很多所谓的灵活，都是不改变声明类型的情况下，改变实例化类来完成的需求变更。当然，继承的特性看似天然就满足这个条件。但这里更注重的是继承的应用问题，我们必须保证我们的子类和父类划分是精准的。<br>里氏替换原则的潜台词是：尽量使用精准的抽象类或者接口。<br>三、单一职责原则：<br>单一职责的含义是：类的职责单一，引起类变化的原因单一。解释一下，这也是灵活的前提，如果我们把类拆分成最小的职能单位，那组合与复用就简单的多了，如果一个类做的事情太多，在组合的时候，必然会产生不必要的方法出现，这实际上是一种污染。<br>举个例子，我们在绘制图案的时候，用“点”组成图和用“直线”组成图，哪个更灵活呢？一定是“点”，它可以绘制任何图形，而直线只能绘制带有直线条的图案，它起码无法画圆。<br>单一职责的潜台词是：拆分到最小单位，解决复用和组合问题。</p>
+<p>四、接口隔离原则：<br>接口隔离原则可以说是单一职责的必要手段，它的含义是尽量使用职能单一的接口，而不使用职能复杂、全面的接口。很好理解，接口是为了让子类实现的，如果子类想达到职能单一，那么接口也必须满足职能单一。<br>相反，如果接口融合了多个不相关的方法，那它的子类就被迫要实现所有方法，尽管有些方法是根本用不到的。这就是接口污染。<br>接口隔离原则的潜台词是：拆分，从接口开始。</p>
+<p>五、依赖倒置原则：<br>想要理解依赖倒置原则，必须先理解传统的解决方案。面相对象的初期的程序，被调用者依赖于调用者。也就是调用者决定被调用者有什么方法，有什么样的实现方式，这种结构在需求变更的时候，会付出很大的代价，甚至推翻重写。<br>依赖倒置原则就是要求调用者和被调用者都依赖抽象，这样两者没有直接的关联和接触，在变动的时候，一方的变动不会影响另一方的变动。<br>其实，依赖倒置和前面的原则是相辅相成的，都强调了抽象的重要性。<br>依赖倒置的潜台词是：面向抽象编程，解耦调用和被调用者。</p>
+<p>六、迪米特原则：<br>迪米特原则要求尽量的封装，尽量的独立，尽量的使用低级别的访问修饰符。这是封装特性的典型体现。<br>一个类如果暴露太多私用的方法和字段，会让调用者很茫然。并且会给类造成不必要的判断代码。所以，我们使用尽量低的访问修饰符，让外界不知道我们的内部。这也是面向对象的基本思路。这是迪米特原则的一个特性，无法了解类更多的私有信息。<br>另外，迪米特原则要求类之间的直接联系尽量的少，两个类的访问，通过第三个中介类来实现。<br>迪米特原则的潜台词是：不和陌生人说话，有事去中介。</p>
+<p>七、组合/聚合复用原则：<br>此原则的含义是，如果只是达到代码复用的目的，尽量使用组合与聚合，而不是继承。这里需要解释一下，组合聚合只是引用其他的类的方法，而不会受引用的类的继承而改变血统。<br>继承的耦合性更大，比如一个父类后来添加实现一个接口或者去掉一个接口，那子类可能会遭到毁灭性的编译错误，但如果只是组合聚合，只是引用类的方法，就不会有这种巨大的风险，同时也实现了复用。<br>组合聚合复用原则的潜台词是：我只是用你的方法，我们不一定是同类。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/06/面向对象设计原则/" data-id="cjo5ot7tk001cvov62ao2lnf4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-输入数据与输出数据" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/29/输入数据与输出数据/" class="article-date">
@@ -89,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/29/输入数据与输出数据/" data-id="cjnubq7bz0019b0v628sq98u6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/29/输入数据与输出数据/" data-id="cjo5ot7ta001avov6cino0lnn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -125,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/29/java数据库存储与读取/" data-id="cjnubq7bi000zb0v67i0lxzac" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/29/java数据库存储与读取/" data-id="cjo5ot7rw0013vov6py9eygzt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -162,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/29/java文件读写/" data-id="cjnubq7bb000vb0v6y89l4kch" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/29/java文件读写/" data-id="cjo5ot7rw000xvov6h0pzuygx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -194,7 +238,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1，工厂模式：<br>简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类<br>（1）简单工厂模式：<br>工厂模式在不同条件下可以创建不同的实体，即实现多态。<br>代码：<br>public interface Shape {        //所有产品类的公共接口<br>   void draw();<br>}<br>public class Rectangle implements Shape {        //第一个产品类</p>
+        <p>1，工厂模式：<br>简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类<br>（1）简单工厂模式：<br>简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else或switch-case来筛选。<br>代码：<br>public interface Shape {        //所有产品类的公共接口<br>   void draw();<br>}<br>public class Rectangle implements Shape {        //第一个产品类</p>
 <p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Rectangle::draw() method.”);<br>   }<br>}<br>public class Square implements Shape {            //第二个产品类</p>
 <p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Square::draw() method.”);<br>   }<br>}<br>public class Circle implements Shape {            //第三个产品类</p>
 <p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Circle::draw() method.”);<br>   }<br>}<br>public class ShapeFactory {                        //工厂类（根据不同的参数创建不同的实例）</p>
@@ -205,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/10/设计模式整合详解/" data-id="cjnubq7bw0016b0v61950t09b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/10/设计模式整合详解/" data-id="cjo5ot7ta0019vov6oebubbxr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,13 +281,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>爬虫是一种获取网络上数据的方法。<br>在网络上获取数据有两种方法：<br>1，浏览器提交请求—&gt;下载网页代码—&gt;解析成页面<br>2，模拟浏览器发送请求(获取网页代码)-&gt;提取有用的数据-&gt;存放于数据库或文件中<br>爬虫使用的是方法二，具体步骤是：发起请求-&gt;获取相应内容-&gt;解析内容-&gt;保存数据<br>1，发起请求：使用http库向目标站点发起请求，即发送一个Request，请求方式有get，post等等，其中Request包含请求头和请求体，但是Request模块无法执行JS和CSS。<br>2，获取相应内容：请求发出后，若服务器正常响应，则可以获得一个Response，其中包括：html，json，图片，视频。<br>3，解析内容：解析html：解析为正则表达式（RE），或使用第三方解析工具。<br>             解析json：解析为json模块。<br>             解析二进制数据：以wb形式写入文件。<br>4，保存数据：将获取的数据存入数据库（MySQL，Redis等等）或存入文件。<br>其中每一步的常用工具为：<br>请求库：requests：较为方便，使用简单，安装方便，缺点是无法请求CSS和JS这些动态加载的信息。<br>        selenium：使用起来较为复杂，但是可以驱动浏览器解析渲染CSS和JS，但有性能劣势（有用没用的网页都会加载）。<br>解析库：re（使用正则表达式）：使用方式直接简单，速度快效率高，但是逻辑较复杂，正则表达式使用较困难。<br>        beautifulsoup：无需使用正则表达式，但使用方式较复杂（参数较多）。<br>        pyquery：python独有，适合擅长前端的人使用。<br>存储库：文件，MySQL，Mongodb，Redis<br>附：python内置urllib库，可用于发送请求和解析（即该库包含请求库和解析库的功能）。</p>
+        <p>爬虫是一种获取网络上数据的方法。<br>在网络上获取数据有两种方法：<br>1，浏览器提交请求—&gt;下载网页代码—&gt;解析成页面<br>2，模拟浏览器发送请求(获取网页代码)-&gt;提取有用的数据-&gt;存放于数据库或文件中<br>爬虫使用的是方法二，具体步骤是：发起请求-&gt;获取相应内容-&gt;解析内容-&gt;保存数据<br>1，发起请求：使用http库向目标站点发起请求，即发送一个Request，请求方式有get，post等等，其中Request包含请求头和请求体，但是Request模块无法执行JS和CSS。<br>2，获取相应内容：请求发出后，若服务器正常响应，则可以获得一个Response，其中包括：html，json，图片，视频。<br>3，解析内容：解析html：解析为正则表达式（RE），或使用第三方解析工具。<br>             解析json：解析为json模块。<br>             解析二进制数据：以wb形式写入文件。<br>4，保存数据：将获取的数据存入数据库（MySQL，Redis等等）或存入文件。<br>其中每一步的常用工具为：<br>请求库：requests：较为方便，使用简单，安装方便，缺点是无法请求CSS和JS这些动态加载的信息。<br>        selenium：使用起来较为复杂，但是可以驱动浏览器解析渲染CSS和JS，但有性能劣势（有用没用的网页都会加载）。<br>解析库：re（使用正则表达式）：使用方式直接简单，速度快效率高，但是逻辑较复杂，正则表达式使用较困难。<br>        beautifulsoup：无需使用正则表达式，但使用方式较复杂（参数较多）。<br>        （注：还可用lambda函数来作为re函数的参数，一般是用于筛选指定标签类型或个数的信息）<br>        pyquery：python独有，适合擅长前端的人使用。<br>存储库：文件，MySQL，Mongodb，Redis<br>附：python内置urllib库，可用于发送请求和解析（即该库包含请求库和解析库的功能）。</p>
 <p>爬虫概念：一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。<br>爬取的对象：浏览器通过解析前端页面代码生成我们所看到的页面，而爬虫要爬取的就是原始的前端页面代码。<br>requests库的使用：<br>requests库的作用是发送各种请求，主要分为三种·：<br>1，get请求，具体用法为r = requests.get(“<a href="https://unsplash.com&quot;)（传入一个String类型的url，返回一个Response类型的对象）" target="_blank" rel="noopener">https://unsplash.com&quot;)（传入一个String类型的url，返回一个Response类型的对象）</a><br>或payload = {‘key1’: ‘value1’, ‘key2’: ‘value2’}    r = requests.get(“<a href="http://httpbin.org/get&quot;" target="_blank" rel="noopener">http://httpbin.org/get&quot;</a>, params=payload)（传入url和一个字典，等价于传入了一个指定参数的url，即<a href="http://httpbin.org/get?key1=value1&amp;key2=value2）" target="_blank" rel="noopener">http://httpbin.org/get?key1=value1&amp;key2=value2）</a><br>2，post请求，</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/25/python爬虫/" data-id="cjnubq7bl0010b0v6wzy6cpq7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/25/python爬虫/" data-id="cjo5ot7rw000zvov6io97xb5j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -281,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/25/正则表达式/" data-id="cjnubq7bx0017b0v6rlmg11fu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/25/正则表达式/" data-id="cjo5ot7s60016vov61xivrh0g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -323,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/树相关算法题/" data-id="cjnubq7c2001bb0v6w8yz969m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/树相关算法题/" data-id="cjo5ot7tk001dvov68y1v5fok" class="article-share-link">Share</a>
       
       
     </footer>
@@ -360,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/28/基数排序解析/" data-id="cjnubq7bu0015b0v6nlju34gk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/28/基数排序解析/" data-id="cjo5ot7s60015vov6cg7djeke" class="article-share-link">Share</a>
       
       
     </footer>
@@ -398,44 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/java各种集合的扩容机制/" data-id="cjnubq7bg000yb0v6ythursgf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java的引用传递和值传递以及String常量池" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/java的引用传递和值传递以及String常量池/" class="article-date">
-  <time datetime="2018-07-21T06:41:45.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/java的引用传递和值传递以及String常量池/">java的引用传递和值传递以及String常量池</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先，从整体来说，因为基本数据类型变量所占据的存储空间所存储的是需要存储的实际值，而引用数据类型所存储的是指向需要存储实际值的存<br>储空间的地址，所以基本数据类型之间使用值传递，引用数据类型之间使用引用传递，但String类型和数组是例外。<br>先说明一下普通的值传递和引用传递原理：使用值传递的形参和实参均直接存储实际需要存储或修改的值，而形参和实参占用的是两份不同的存储<br>空间，且形参的存储空间在其所在的方法执行完毕后会被释放，故而只是形参存储的值被改变后其存储空间又被释放而已，实参存储的值不会改变<br>；而使用引用传递的形参和实参内存储的是需要存储或修改的值的存储空间的地址，即形参和实参虽然各自使用不同的存储空间，但均指向同一份<br>存储了实际值的存储空间，故而在方法执行完毕之后，二者所指向的同一份存储空间所存储的值也被改变了，即使形参存储空间被释放，实参所存<br>储（指向）的值也被改变了。<br>但是，String类型本身含有常量池，即含有所有字符串的池，常量池中的存储的所有值不会被改变，变量只能改变指向方向，所以除非使用new指令<br>开辟额外的存储空间，否则的话String类型变量会指向常量池中与存储值相同的，本来就存在的那份存储空间。而在方法执行完毕后，只是形参的<br>指向（存储的地址）改变了，故而实参所存储（指向）的值仍未改变。<br>数组实参传递给形参的是数组名，即指向数组实际存储值存储空间的地址，故其原理和普通引用传递是相同的，所以无论是引用数据类型数组还是<br>基本数据类型数组均使用引用传递。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/java的引用传递和值传递以及String常量池/" data-id="cjnubq7bq0012b0v6bwkzl9u1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/java各种集合的扩容机制/" data-id="cjo5ot7rw0011vov6w0eih24s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -468,7 +475,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -479,6 +486,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/11/06/面向对象设计原则/">面向对象设计原则</a>
+          </li>
         
           <li>
             <a href="/2018/10/29/输入数据与输出数据/">输入数据与输出数据</a>
@@ -494,10 +505,6 @@
         
           <li>
             <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/25/python爬虫/">python爬虫</a>
           </li>
         
       </ul>

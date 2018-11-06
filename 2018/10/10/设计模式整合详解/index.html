@@ -7,17 +7,17 @@
   
   <title>设计模式整合详解 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类（1）简单工厂模式：工厂模式在不同条件下可以创建不同的实体，即实现多态。代码：public interfac">
+  <meta name="description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类（1）简单工厂模式：简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式整合详解">
 <meta property="og:url" content="http://yoursite.com/2018/10/10/设计模式整合详解/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类（1）简单工厂模式：工厂模式在不同条件下可以创建不同的实体，即实现多态。代码：public interfac">
+<meta property="og:description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类（1）简单工厂模式：简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-29T02:05:55.884Z">
+<meta property="og:updated_time" content="2018-11-06T11:13:02.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式整合详解">
-<meta name="twitter:description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类（1）简单工厂模式：工厂模式在不同条件下可以创建不同的实体，即实现多态。代码：public interfac">
+<meta name="twitter:description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类（1）简单工厂模式：简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -86,7 +86,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1，工厂模式：<br>简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类<br>（1）简单工厂模式：<br>工厂模式在不同条件下可以创建不同的实体，即实现多态。<br>代码：<br>public interface Shape {        //所有产品类的公共接口<br>   void draw();<br>}<br>public class Rectangle implements Shape {        //第一个产品类</p>
+        <p>1，工厂模式：<br>简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类<br>（1）简单工厂模式：<br>简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else或switch-case来筛选。<br>代码：<br>public interface Shape {        //所有产品类的公共接口<br>   void draw();<br>}<br>public class Rectangle implements Shape {        //第一个产品类</p>
 <p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Rectangle::draw() method.”);<br>   }<br>}<br>public class Square implements Shape {            //第二个产品类</p>
 <p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Square::draw() method.”);<br>   }<br>}<br>public class Circle implements Shape {            //第三个产品类</p>
 <p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Circle::draw() method.”);<br>   }<br>}<br>public class ShapeFactory {                        //工厂类（根据不同的参数创建不同的实例）</p>
@@ -97,7 +97,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/10/设计模式整合详解/" data-id="cjnubq7bw0016b0v61950t09b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/10/设计模式整合详解/" data-id="cjo5ot7ta0019vov6oebubbxr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -142,7 +142,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -153,6 +153,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/11/06/面向对象设计原则/">面向对象设计原则</a>
+          </li>
         
           <li>
             <a href="/2018/10/29/输入数据与输出数据/">输入数据与输出数据</a>
@@ -168,10 +172,6 @@
         
           <li>
             <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/25/python爬虫/">python爬虫</a>
           </li>
         
       </ul>

@@ -62,6 +62,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-21-线程的五种状态" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/21-线程的五种状态/" class="article-date">
+  <time datetime="2018-07-21T06:27:28.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/21-线程的五种状态/">21,线程的五种状态</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>线程的五种状态分别为：创建，就绪，运行，阻塞，死亡。<br>新建状态：线程在刚被创建时，会短暂地处于这种状态，此时线程已被分配系统资源并完成了初始化，有资格获得CPU运行时间。<br>就绪状态：线程在执行start()方法之后就会进入这种状态，此时只要线程得到CPU时间就会进入运行状态。<br>运行状态：就是线程运行时的状态，可能被阻塞也可能执行完毕进入死亡状态。<br>阻塞状态：运行状态的进程如果遇到以下几种情况就会进入阻塞状态：调用了wait()，join()或sleep()方法，调用了IO阻塞方法，等待执行上锁的<br>代码块或方法。阻塞状态在以下情况下会进入就绪状态：获得了同步锁，阻塞IO方法返回，sleep()方法等待时间到，调用notify()或notifyAll()方<br>法，调用join()方法的线程终止。<br>死亡状态：运行状态的线程执行完毕或产生Exception或Error会进入死亡状态。<br>相关方法说明：sleep()方法：以数字作为参数，代表等待的毫秒数，使线程在规定的时间内进入阻塞状态，期间线程的锁不释放，且notify()或<br>notifyAll()无法将线程唤醒。<br>wait()方法：有两种使用方式：第一种的作用和sleep()方法相似，但是期间线程的锁释放，而且可以被notify()或notifyAll()唤醒；第二种方式无<br>参数，此时线程将会无线地等待下去，除非被notify()或notifyAll()唤醒。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/21-线程的五种状态/" data-id="cjo5ot7rc000fvov6vjry0978" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-20-Collection和Collections的区别" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/21/20-Collection和Collections的区别/" class="article-date">
@@ -89,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/20-Collection和Collections的区别/" data-id="cjnubq79d000bb0v63lv1luce" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/20-Collection和Collections的区别/" data-id="cjo5ot7r2000dvov6pkrntpp6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/19-传统for和增强for的区别/" data-id="cjnubq79e000cb0v6gbglg3uf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/19-传统for和增强for的区别/" data-id="cjo5ot7r2000bvov6k3xobnqo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -163,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/18-不借助第三个变量，互换两个变量/" data-id="cjnubq79a000ab0v6y40bews3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/18-不借助第三个变量，互换两个变量/" data-id="cjo5ot7r20009vov6zfh8fdhd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/17-接口和抽象类的区别/" data-id="cjnubq7970008b0v64c59e0dv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/17-接口和抽象类的区别/" data-id="cjo5ot7r2000avov6135t5n4a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/16-使用运算符-和equals-的区别/" data-id="cjnubq79u000ob0v6ha9d650p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/16-使用运算符-和equals-的区别/" data-id="cjo5ot7r20008vov6ygsvbsmm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/15-Java中String-str-null和String-str-的区别/" data-id="cjnubq7960007b0v64h5xqerr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/15-Java中String-str-null和String-str-的区别/" data-id="cjo5ot7r20006vov60k6tp7w4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/13-StringBuffer和StringBulider的区别/" data-id="cjnubq7940005b0v6kv017ilz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/13-StringBuffer和StringBulider的区别/" data-id="cjo5ot7qs0005vov62flfv3h5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/14-String和StringBuffer的区别/" data-id="cjnubq7950006b0v6hoid90hy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/14-String和StringBuffer的区别/" data-id="cjo5ot7r20007vov6wrh6riwr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -385,44 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/12-数组和集合的区别/" data-id="cjnubq7920003b0v68gvzs7m0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-11-同步方法与同步代码块的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/11-同步方法与同步代码块的区别/" class="article-date">
-  <time datetime="2018-07-21T06:20:36.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/11-同步方法与同步代码块的区别/">11,同步方法与同步代码块的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>java中实现线程同步的手段即使用同步方法或同步代码块。同步方法和同步代码块即为以synchronized关键字修饰的方法和代码块。使用该关键字修<br>饰的方法或代码块在同一时间内只能由一个线程调用，若此时其他线程要调用该方法或代码块，该线程会被阻塞。<br>而二者的不同之处在于，上锁的部分不同，同步方法是对某方法上锁，而同步代码块是对于某代码块上锁，相对于同步方法而言，同步代码块造成阻<br>塞的可能性更小。比如说，在某线程调用同步方法时，其他要调用该同步方法的线程均会阻塞，但是，若只是将方法中的部分代码块上锁，则其他要<br>调用该方法的线程仍然可以调用该方法中的非同步代码块，从而减少了阻塞。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/11-同步方法与同步代码块的区别/" data-id="cjnubq7900002b0v6le61n1bq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/12-数组和集合的区别/" data-id="cjo5ot7qs0003vov68aoyqyib" class="article-share-link">Share</a>
       
       
     </footer>
@@ -455,7 +455,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -466,6 +466,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/11/06/面向对象设计原则/">面向对象设计原则</a>
+          </li>
         
           <li>
             <a href="/2018/10/29/输入数据与输出数据/">输入数据与输出数据</a>
@@ -481,10 +485,6 @@
         
           <li>
             <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/25/python爬虫/">python爬虫</a>
           </li>
         
       </ul>

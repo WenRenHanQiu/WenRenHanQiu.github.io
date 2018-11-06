@@ -62,6 +62,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-11-同步方法与同步代码块的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/11-同步方法与同步代码块的区别/" class="article-date">
+  <time datetime="2018-07-21T06:20:36.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/11-同步方法与同步代码块的区别/">11,同步方法与同步代码块的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>java中实现线程同步的手段即使用同步方法或同步代码块。同步方法和同步代码块即为以synchronized关键字修饰的方法和代码块。使用该关键字修<br>饰的方法或代码块在同一时间内只能由一个线程调用，若此时其他线程要调用该方法或代码块，该线程会被阻塞。<br>而二者的不同之处在于，上锁的部分不同，同步方法是对某方法上锁，而同步代码块是对于某代码块上锁，相对于同步方法而言，同步代码块造成阻<br>塞的可能性更小。比如说，在某线程调用同步方法时，其他要调用该同步方法的线程均会阻塞，但是，若只是将方法中的部分代码块上锁，则其他要<br>调用该方法的线程仍然可以调用该方法中的非同步代码块，从而减少了阻塞。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/11-同步方法与同步代码块的区别/" data-id="cjo5ot7qs0004vov6wns6u3sl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-10-局部变量和成员变量的区别" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/21/10-局部变量和成员变量的区别/" class="article-date">
@@ -89,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/10-局部变量和成员变量的区别/" data-id="cjnubq7930004b0v6docuwibb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/10-局部变量和成员变量的区别/" data-id="cjo5ot7qs0002vov608h3juz4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/9-集合体系/" data-id="cjnubq7b9000ub0v6onke4gyj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/9-集合体系/" data-id="cjo5ot7rm000tvov6xmp89cy8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -163,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/8-IO体系/" data-id="cjnubq7b7000tb0v6xd92878a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/8-IO体系/" data-id="cjo5ot7rw000wvov6kvwrmeji" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/7-对匿名内部类的理解/" data-id="cjnubq7b4000sb0v6chojrurt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/7-对匿名内部类的理解/" data-id="cjo5ot7rm000svov6ne95cpp3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/6-wait-和sleep-的区别/" data-id="cjnubq79y000rb0v6w7ro6vr4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/6-wait-和sleep-的区别/" data-id="cjo5ot7rm000rvov6ghgsllqq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/5-什么是多态，多态的好处和弊端/" data-id="cjnubq79x000qb0v63mabuyaw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/5-什么是多态，多态的好处和弊端/" data-id="cjo5ot7rm000pvov6corrqkvj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/4-final-finally-finalize的区别/" data-id="cjnubq79v000pb0v604pi2wl2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/4-final-finally-finalize的区别/" data-id="cjo5ot7rm000ovov6xuhn531o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/3-类与类，类与接口，接口与接口的关系/" data-id="cjnubq79t000nb0v6s53odox0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/3-类与类，类与接口，接口与接口的关系/" data-id="cjo5ot7rc000kvov6kupie37b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -385,44 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/2-static的特点/" data-id="cjnubq7990009b0v6iop8j29n" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-1-Abstract与哪些类不能共存，为什么" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/21/1-Abstract与哪些类不能共存，为什么/" class="article-date">
-  <time datetime="2018-07-21T06:10:45.000Z" itemprop="datePublished">2018-07-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/21/1-Abstract与哪些类不能共存，为什么/">1,Abstract与哪些类不能共存，为什么</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Abstract关键字的含义为抽象，以该关键字修饰的方法为抽象方法，抽象方法无方法体；以该关键字修饰的类为抽象类，其中必须含有<br>抽象方法。private含义为私有，final含义为不可更改，其修饰常量和不可重写方法；static含义为静态，修饰静态变量与静态方法，静态<br>变量及方法归类所有，而非对象。final与Abstract不能共存，因为抽象方法（或类）是为了重写（或派生）以实现多态，而final却禁止方<br>法被重写（或被继承）二者冲突。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/1-Abstract与哪些类不能共存，为什么/" data-id="cjnubq78x0001b0v6ysj2ypo6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/2-static的特点/" data-id="cjo5ot7r2000cvov67quzegx7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -455,7 +455,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -466,6 +466,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/11/06/面向对象设计原则/">面向对象设计原则</a>
+          </li>
         
           <li>
             <a href="/2018/10/29/输入数据与输出数据/">输入数据与输出数据</a>
@@ -481,10 +485,6 @@
         
           <li>
             <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/25/python爬虫/">python爬虫</a>
           </li>
         
       </ul>

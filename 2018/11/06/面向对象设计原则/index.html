@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>面向对象设计原则 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在进行面向对象程序设计时，为了更好地实现面向对象编程思想，贴合实际对象需求，优化代码，需要遵循一些设计原则。例：我们需要设计一个人事管理系统，其中的一个功能是对各种不同的类型员工，计算其当月的工资—不同类型的员工，拥有不同的薪金计算制度。结构化设计思想为：1.获得人事系统中所有可能的员工类型。2.根据不同的员工类型所对应的不同薪金制度，计算其工资。结构化设计代码为：enum EmployeeTyp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象设计原则">
+<meta property="og:url" content="http://yoursite.com/2018/11/06/面向对象设计原则/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在进行面向对象程序设计时，为了更好地实现面向对象编程思想，贴合实际对象需求，优化代码，需要遵循一些设计原则。例：我们需要设计一个人事管理系统，其中的一个功能是对各种不同的类型员工，计算其当月的工资—不同类型的员工，拥有不同的薪金计算制度。结构化设计思想为：1.获得人事系统中所有可能的员工类型。2.根据不同的员工类型所对应的不同薪金制度，计算其工资。结构化设计代码为：enum EmployeeTyp">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-06T12:04:37.356Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象设计原则">
+<meta name="twitter:description" content="在进行面向对象程序设计时，为了更好地实现面向对象编程思想，贴合实际对象需求，优化代码，需要遵循一些设计原则。例：我们需要设计一个人事管理系统，其中的一个功能是对各种不同的类型员工，计算其当月的工资—不同类型的员工，拥有不同的薪金计算制度。结构化设计思想为：1.获得人事系统中所有可能的员工类型。2.根据不同的员工类型所对应的不同薪金制度，计算其工资。结构化设计代码为：enum EmployeeTyp">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面向对象设计原则" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/06/面向对象设计原则/" class="article-date">
+  <time datetime="2018-11-06T11:27:30.000Z" itemprop="datePublished">2018-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面向对象设计原则
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在进行面向对象程序设计时，为了更好地实现面向对象编程思想，贴合实际对象需求，优化代码，需要遵循一些设计原则。<br>例：我们需要设计一个人事管理系统，其中的一个功能是对各种不同的类型员工，计算其当月的工资—不同类型的员工，拥有不同的薪金计算制度。<br>结构化设计思想为：1.获得人事系统中所有可能的员工类型。<br>2.根据不同的员工类型所对应的不同薪金制度，计算其工资。<br>结构化设计代码为：<br>enum EmployeeType{<br>  Engineer;<br>  Sales;<br>  Manager;<br>  …<br>};<br>//计算工资程序<br>If(type==EmployeeType.Enginner)<br>{<br>    //……<br>}<br>else if (type==EmployeeType.Sales)<br>{<br>    //……<br>}<br>面向对象设计思想为：1.根据不同员工设计不同的类，并使这些类继承自一个Employee抽象类，其中有一个抽象方法getSalary。<br>2.在各个不同的员工中，根据自己的薪金制度，重写(override)getSalary方法。<br>面向对象设计代码为：<br>abstract public class Employee{<br>    …<br>    public abstract int getSalary();<br>}</p>
+<p>public class Sales : Employee{<br>    …<br>    override public int getSalary(){<br>    …<br>    }<br>}<br>public class Engineer : Employee{<br>    …<br>    override public int getSalary(){<br>    …<br>    }<br>}<br>// 显示工资程序<br>Employee e = emFactory.getEmployee(id);<br>System.out.println(e.getSalary());<br>从以上示例中我们可以看出：结构化设计思想更侧重于直接地解决问题，直接实现了需求；面向对象设计思想更侧重于贴合实际，构造了提出需求的对象，在此基础上再解决问题。<br>看起来貌似结构化设计思想的实现更为简洁，但是却不利于应对之后的改变，它只是解决了当前的需求，而且当面对多个问题时每段代码是各自独立解决问题的，导致代码零散；而面向对象设计思想可以整合多种不同的需求到对象中，更贴合实际，让各个功能联系更加紧密，代码更加规范。<br>我们可以看出，在这个问题上似乎结构化设计思想的代码更为简洁，但是一旦有新的需求提出，结构化的代码就会变得零散，而面向对象的代码却能保持规范划一。随着需求的增多，面向对象思想的代码相比之下会更为简洁和规范。<br>所以，对于这个问题，面向对象设计思想才是更加合适的。<br>当然，这并非说结构化思想逊于面向对象设计思想，二者各有优劣，例如：当单纯解决算法问题的时候结构化思想往往就比面向对象思想更为简洁，因为没有具体对象，只有单纯的需求；而当遇到一些贴合实际的问题，有“对象”特点体现或需求较多时，面向对象设计思想就更为适合。所以说，关键在于全面且深入地认识问题及需求，找到最为合适的设计思想才是最重要的。</p>
+<p>接下来介绍为了更好地体现面向对象设计原则所需遵循的几项准则：<br>一、开闭原则：<br>这一条放在第一位来理解，它的含义是对扩展开放，对修改关闭。解释一下就是，我们写完的代码，不能因为需求变化就修改。我们可以通过新增代码的方式来解决变化的需求。<br>当然，这是一种理想的状态，在现实中，我们要尽量的缩小这种修改。<br>再解释一下这条原则的意义所在，我们采用逆向思维方式来想。如果每次需求变动都去修改原有的代码，那原有的代码就存在被修改错误的风险，当然这其中存在有意和无意的修改，都会导致原有正常运行的功能失效的风险，这样很有可能会展开可怕的蝴蝶效应，使维护工作剧增。<br>说到底，开闭原则除了表面上的可扩展性强以外，在企业中更看重的是维护成本。<br>所以，开闭原则是设计模式的第一大原则，它的潜台词是：控制需求变动风险，缩小维护成本。<br>以下几种原则，都是为此原则服务的。</p>
+<p>二、里氏替换选择：<br>此原则的含义是子类可以在任何地方替换它的父类。解释一下，这是多态的前提，我们后面很多所谓的灵活，都是不改变声明类型的情况下，改变实例化类来完成的需求变更。当然，继承的特性看似天然就满足这个条件。但这里更注重的是继承的应用问题，我们必须保证我们的子类和父类划分是精准的。<br>里氏替换原则的潜台词是：尽量使用精准的抽象类或者接口。<br>三、单一职责原则：<br>单一职责的含义是：类的职责单一，引起类变化的原因单一。解释一下，这也是灵活的前提，如果我们把类拆分成最小的职能单位，那组合与复用就简单的多了，如果一个类做的事情太多，在组合的时候，必然会产生不必要的方法出现，这实际上是一种污染。<br>举个例子，我们在绘制图案的时候，用“点”组成图和用“直线”组成图，哪个更灵活呢？一定是“点”，它可以绘制任何图形，而直线只能绘制带有直线条的图案，它起码无法画圆。<br>单一职责的潜台词是：拆分到最小单位，解决复用和组合问题。</p>
+<p>四、接口隔离原则：<br>接口隔离原则可以说是单一职责的必要手段，它的含义是尽量使用职能单一的接口，而不使用职能复杂、全面的接口。很好理解，接口是为了让子类实现的，如果子类想达到职能单一，那么接口也必须满足职能单一。<br>相反，如果接口融合了多个不相关的方法，那它的子类就被迫要实现所有方法，尽管有些方法是根本用不到的。这就是接口污染。<br>接口隔离原则的潜台词是：拆分，从接口开始。</p>
+<p>五、依赖倒置原则：<br>想要理解依赖倒置原则，必须先理解传统的解决方案。面相对象的初期的程序，被调用者依赖于调用者。也就是调用者决定被调用者有什么方法，有什么样的实现方式，这种结构在需求变更的时候，会付出很大的代价，甚至推翻重写。<br>依赖倒置原则就是要求调用者和被调用者都依赖抽象，这样两者没有直接的关联和接触，在变动的时候，一方的变动不会影响另一方的变动。<br>其实，依赖倒置和前面的原则是相辅相成的，都强调了抽象的重要性。<br>依赖倒置的潜台词是：面向抽象编程，解耦调用和被调用者。</p>
+<p>六、迪米特原则：<br>迪米特原则要求尽量的封装，尽量的独立，尽量的使用低级别的访问修饰符。这是封装特性的典型体现。<br>一个类如果暴露太多私用的方法和字段，会让调用者很茫然。并且会给类造成不必要的判断代码。所以，我们使用尽量低的访问修饰符，让外界不知道我们的内部。这也是面向对象的基本思路。这是迪米特原则的一个特性，无法了解类更多的私有信息。<br>另外，迪米特原则要求类之间的直接联系尽量的少，两个类的访问，通过第三个中介类来实现。<br>迪米特原则的潜台词是：不和陌生人说话，有事去中介。</p>
+<p>七、组合/聚合复用原则：<br>此原则的含义是，如果只是达到代码复用的目的，尽量使用组合与聚合，而不是继承。这里需要解释一下，组合聚合只是引用其他的类的方法，而不会受引用的类的继承而改变血统。<br>继承的耦合性更大，比如一个父类后来添加实现一个接口或者去掉一个接口，那子类可能会遭到毁灭性的编译错误，但如果只是组合聚合，只是引用类的方法，就不会有这种巨大的风险，同时也实现了复用。<br>组合聚合复用原则的潜台词是：我只是用你的方法，我们不一定是同类。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/06/面向对象设计原则/" data-id="cjo5ot7tk001cvov62ao2lnf4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/29/输入数据与输出数据/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">输入数据与输出数据</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/06/面向对象设计原则/">面向对象设计原则</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/29/输入数据与输出数据/">输入数据与输出数据</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/29/java数据库存储与读取/">java数据库存储与读取</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/29/java文件读写/">java文件读写</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

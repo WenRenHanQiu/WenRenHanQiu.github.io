@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="爬虫是一种获取网络上数据的方法。在网络上获取数据有两种方法：1，浏览器提交请求—&amp;gt;下载网页代码—&amp;gt;解析成页面2，模拟浏览器发送请求(获取网页代码)-&amp;gt;提取有用的数据-&amp;gt;存放于数据库或文件中爬虫使用的是方法二，具体步骤是：发起请求-&amp;gt;获取相应内容-&amp;gt;解析内容-&amp;gt;保存数据1，发起请求：使用http库向目标站点发起请求，即发送一个Request，请求方式有get">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-22T04:30:28.463Z">
+<meta property="og:updated_time" content="2018-11-01T07:27:36.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python爬虫">
 <meta name="twitter:description" content="爬虫是一种获取网络上数据的方法。在网络上获取数据有两种方法：1，浏览器提交请求—&amp;gt;下载网页代码—&amp;gt;解析成页面2，模拟浏览器发送请求(获取网页代码)-&amp;gt;提取有用的数据-&amp;gt;存放于数据库或文件中爬虫使用的是方法二，具体步骤是：发起请求-&amp;gt;获取相应内容-&amp;gt;解析内容-&amp;gt;保存数据1，发起请求：使用http库向目标站点发起请求，即发送一个Request，请求方式有get">
@@ -86,13 +86,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>爬虫是一种获取网络上数据的方法。<br>在网络上获取数据有两种方法：<br>1，浏览器提交请求—&gt;下载网页代码—&gt;解析成页面<br>2，模拟浏览器发送请求(获取网页代码)-&gt;提取有用的数据-&gt;存放于数据库或文件中<br>爬虫使用的是方法二，具体步骤是：发起请求-&gt;获取相应内容-&gt;解析内容-&gt;保存数据<br>1，发起请求：使用http库向目标站点发起请求，即发送一个Request，请求方式有get，post等等，其中Request包含请求头和请求体，但是Request模块无法执行JS和CSS。<br>2，获取相应内容：请求发出后，若服务器正常响应，则可以获得一个Response，其中包括：html，json，图片，视频。<br>3，解析内容：解析html：解析为正则表达式（RE），或使用第三方解析工具。<br>             解析json：解析为json模块。<br>             解析二进制数据：以wb形式写入文件。<br>4，保存数据：将获取的数据存入数据库（MySQL，Redis等等）或存入文件。<br>其中每一步的常用工具为：<br>请求库：requests：较为方便，使用简单，安装方便，缺点是无法请求CSS和JS这些动态加载的信息。<br>        selenium：使用起来较为复杂，但是可以驱动浏览器解析渲染CSS和JS，但有性能劣势（有用没用的网页都会加载）。<br>解析库：re（使用正则表达式）：使用方式直接简单，速度快效率高，但是逻辑较复杂，正则表达式使用较困难。<br>        beautifulsoup：无需使用正则表达式，但使用方式较复杂（参数较多）。<br>        pyquery：python独有，适合擅长前端的人使用。<br>存储库：文件，MySQL，Mongodb，Redis<br>附：python内置urllib库，可用于发送请求和解析（即该库包含请求库和解析库的功能）。</p>
+        <p>爬虫是一种获取网络上数据的方法。<br>在网络上获取数据有两种方法：<br>1，浏览器提交请求—&gt;下载网页代码—&gt;解析成页面<br>2，模拟浏览器发送请求(获取网页代码)-&gt;提取有用的数据-&gt;存放于数据库或文件中<br>爬虫使用的是方法二，具体步骤是：发起请求-&gt;获取相应内容-&gt;解析内容-&gt;保存数据<br>1，发起请求：使用http库向目标站点发起请求，即发送一个Request，请求方式有get，post等等，其中Request包含请求头和请求体，但是Request模块无法执行JS和CSS。<br>2，获取相应内容：请求发出后，若服务器正常响应，则可以获得一个Response，其中包括：html，json，图片，视频。<br>3，解析内容：解析html：解析为正则表达式（RE），或使用第三方解析工具。<br>             解析json：解析为json模块。<br>             解析二进制数据：以wb形式写入文件。<br>4，保存数据：将获取的数据存入数据库（MySQL，Redis等等）或存入文件。<br>其中每一步的常用工具为：<br>请求库：requests：较为方便，使用简单，安装方便，缺点是无法请求CSS和JS这些动态加载的信息。<br>        selenium：使用起来较为复杂，但是可以驱动浏览器解析渲染CSS和JS，但有性能劣势（有用没用的网页都会加载）。<br>解析库：re（使用正则表达式）：使用方式直接简单，速度快效率高，但是逻辑较复杂，正则表达式使用较困难。<br>        beautifulsoup：无需使用正则表达式，但使用方式较复杂（参数较多）。<br>        （注：还可用lambda函数来作为re函数的参数，一般是用于筛选指定标签类型或个数的信息）<br>        pyquery：python独有，适合擅长前端的人使用。<br>存储库：文件，MySQL，Mongodb，Redis<br>附：python内置urllib库，可用于发送请求和解析（即该库包含请求库和解析库的功能）。</p>
 <p>爬虫概念：一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。<br>爬取的对象：浏览器通过解析前端页面代码生成我们所看到的页面，而爬虫要爬取的就是原始的前端页面代码。<br>requests库的使用：<br>requests库的作用是发送各种请求，主要分为三种·：<br>1，get请求，具体用法为r = requests.get(“<a href="https://unsplash.com&quot;)（传入一个String类型的url，返回一个Response类型的对象）" target="_blank" rel="noopener">https://unsplash.com&quot;)（传入一个String类型的url，返回一个Response类型的对象）</a><br>或payload = {‘key1’: ‘value1’, ‘key2’: ‘value2’}    r = requests.get(“<a href="http://httpbin.org/get&quot;" target="_blank" rel="noopener">http://httpbin.org/get&quot;</a>, params=payload)（传入url和一个字典，等价于传入了一个指定参数的url，即<a href="http://httpbin.org/get?key1=value1&amp;key2=value2）" target="_blank" rel="noopener">http://httpbin.org/get?key1=value1&amp;key2=value2）</a><br>2，post请求，</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/25/python爬虫/" data-id="cjnubq7bl0010b0v6wzy6cpq7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/25/python爬虫/" data-id="cjo5ot7rw000zvov6io97xb5j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +137,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -148,6 +148,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/11/06/面向对象设计原则/">面向对象设计原则</a>
+          </li>
         
           <li>
             <a href="/2018/10/29/输入数据与输出数据/">输入数据与输出数据</a>
@@ -163,10 +167,6 @@
         
           <li>
             <a href="/2018/10/10/设计模式整合详解/">设计模式整合详解</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/25/python爬虫/">python爬虫</a>
           </li>
         
       </ul>
