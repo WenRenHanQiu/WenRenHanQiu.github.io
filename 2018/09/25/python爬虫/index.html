@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="爬虫是一种获取网络上数据的方法。在网络上获取数据有两种方法：1，浏览器提交请求—&amp;gt;下载网页代码—&amp;gt;解析成页面2，模拟浏览器发送请求(获取网页代码)-&amp;gt;提取有用的数据-&amp;gt;存放于数据库或文件中爬虫使用的是方法二，具体步骤是：发起请求-&amp;gt;获取相应内容-&amp;gt;解析内容-&amp;gt;保存数据1，发起请求：使用http库向目标站点发起请求，即发送一个Request，请求方式有get">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-01T07:27:36.662Z">
+<meta property="og:updated_time" content="2019-03-07T12:17:26.385Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python爬虫">
 <meta name="twitter:description" content="爬虫是一种获取网络上数据的方法。在网络上获取数据有两种方法：1，浏览器提交请求—&amp;gt;下载网页代码—&amp;gt;解析成页面2，模拟浏览器发送请求(获取网页代码)-&amp;gt;提取有用的数据-&amp;gt;存放于数据库或文件中爬虫使用的是方法二，具体步骤是：发起请求-&amp;gt;获取相应内容-&amp;gt;解析内容-&amp;gt;保存数据1，发起请求：使用http库向目标站点发起请求，即发送一个Request，请求方式有get">
@@ -87,7 +87,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>爬虫是一种获取网络上数据的方法。<br>在网络上获取数据有两种方法：<br>1，浏览器提交请求—&gt;下载网页代码—&gt;解析成页面<br>2，模拟浏览器发送请求(获取网页代码)-&gt;提取有用的数据-&gt;存放于数据库或文件中<br>爬虫使用的是方法二，具体步骤是：发起请求-&gt;获取相应内容-&gt;解析内容-&gt;保存数据<br>1，发起请求：使用http库向目标站点发起请求，即发送一个Request，请求方式有get，post等等，其中Request包含请求头和请求体，但是Request模块无法执行JS和CSS。<br>2，获取相应内容：请求发出后，若服务器正常响应，则可以获得一个Response，其中包括：html，json，图片，视频。<br>3，解析内容：解析html：解析为正则表达式（RE），或使用第三方解析工具。<br>             解析json：解析为json模块。<br>             解析二进制数据：以wb形式写入文件。<br>4，保存数据：将获取的数据存入数据库（MySQL，Redis等等）或存入文件。<br>其中每一步的常用工具为：<br>请求库：requests：较为方便，使用简单，安装方便，缺点是无法请求CSS和JS这些动态加载的信息。<br>        selenium：使用起来较为复杂，但是可以驱动浏览器解析渲染CSS和JS，但有性能劣势（有用没用的网页都会加载）。<br>解析库：re（使用正则表达式）：使用方式直接简单，速度快效率高，但是逻辑较复杂，正则表达式使用较困难。<br>        beautifulsoup：无需使用正则表达式，但使用方式较复杂（参数较多）。<br>        （注：还可用lambda函数来作为re函数的参数，一般是用于筛选指定标签类型或个数的信息）<br>        pyquery：python独有，适合擅长前端的人使用。<br>存储库：文件，MySQL，Mongodb，Redis<br>附：python内置urllib库，可用于发送请求和解析（即该库包含请求库和解析库的功能）。</p>
-<p>爬虫概念：一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。<br>爬取的对象：浏览器通过解析前端页面代码生成我们所看到的页面，而爬虫要爬取的就是原始的前端页面代码。<br>requests库的使用：<br>requests库的作用是发送各种请求，主要分为三种·：<br>1，get请求，具体用法为r = requests.get(“<a href="https://unsplash.com&quot;)（传入一个String类型的url，返回一个Response类型的对象）" target="_blank" rel="noopener">https://unsplash.com&quot;)（传入一个String类型的url，返回一个Response类型的对象）</a><br>或payload = {‘key1’: ‘value1’, ‘key2’: ‘value2’}    r = requests.get(“<a href="http://httpbin.org/get&quot;" target="_blank" rel="noopener">http://httpbin.org/get&quot;</a>, params=payload)（传入url和一个字典，等价于传入了一个指定参数的url，即<a href="http://httpbin.org/get?key1=value1&amp;key2=value2）" target="_blank" rel="noopener">http://httpbin.org/get?key1=value1&amp;key2=value2）</a><br>2，post请求，</p>
+<p>爬虫概念：一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。<br>爬取的对象：浏览器通过解析前端页面代码生成我们所看到的页面，而爬虫要爬取的就是原始的前端页面代码。<br>requests库的使用：<br>请求：由客户端向服务端发出，可以分为4部分内容：请求方法（Request Method）、请求的网址（Request URL）、请求头（Request Headers）、请求体（Request Body）。python爬虫的请求库的作用即为发送请求。<br>    常见的请求方法有两种：GET和POST。<br>    在浏览器中直接输入URL并回车，这便发起了一个GET请求，请求的参数会直接包含到URL里。例如，在百度中搜索Python，这就是一个GET请求，链接为<a href="https://www.baidu.com/s?wd=Python，其中URL中包含了请求的参数信息，这里参数wd表示要搜寻的关键字。POST请求大多在表单提交时发起。比如，对于一个登录表单，输入用户名和密码后，点击“登录”按钮，这通常会发起一个POST请求，其数据通常以表单的形式传输，而不会体现在URL中。" target="_blank" rel="noopener">https://www.baidu.com/s?wd=Python，其中URL中包含了请求的参数信息，这里参数wd表示要搜寻的关键字。POST请求大多在表单提交时发起。比如，对于一个登录表单，输入用户名和密码后，点击“登录”按钮，这通常会发起一个POST请求，其数据通常以表单的形式传输，而不会体现在URL中。</a><br>    GET和POST请求方法有如下区别。<br>    1，GET请求中的参数包含在URL里面，数据可以在URL中看到，而POST请求的URL不会包含这些数据，数据都是通过表单形式传输的，会包含在请求体中，即GET请求会将信息暴露在URL中，而POST请求更具隐蔽性。<br>    2，GET请求提交的数据最多只有1024字节，而POST方式没有限制。<br>requests库的作用是发送各种请求，主要分为三种·：<br>1，get请求，具体用法为r = requests.get(“<a href="https://unsplash.com&quot;)（传入一个String类型的url，返回一个Response类型的对象）" target="_blank" rel="noopener">https://unsplash.com&quot;)（传入一个String类型的url，返回一个Response类型的对象）</a><br>或payload = {‘key1’: ‘value1’, ‘key2’: ‘value2’}    r = requests.get(“<a href="http://httpbin.org/get&quot;" target="_blank" rel="noopener">http://httpbin.org/get&quot;</a>, params=payload)（传入url和一个字典，等价于传入了一个指定参数的url，即<a href="http://httpbin.org/get?key1=value1&amp;key2=value2）" target="_blank" rel="noopener">http://httpbin.org/get?key1=value1&amp;key2=value2）</a></p>
+<p>2，post请求，</p>
+<p>响应，由服务端返回给客户端，可以分为三部分：响应状态码（Response Status Code）、响应头（Response Headers）和响应体（Response Body）。<br>其中，响应状态码表示服务器的响应状态，如200代表服务器正常响应，404代表页面未找到，500代表服务器内部发生错误。在爬虫中，我们可以根据状态码来判断服务器响应状态，如状态码为200，则证明成功返回数据，再进行进一步的处理，否则直接忽略。表2-3列出了常见的错误代码及错误原因。</p>
+<p>Ajax ，全称为 Asynchronous JavaScript and XML ，即异步的 JavaScript XML 它不是一门编程语言，而是利用 JavaSc ipt 在保证页面不被刷新、页面链接不改变的情况下与服务器交换数据并更新部分网页的技术。<br>即，Ajax技术可以让网页变为动态，可以在不刷新全部网页的情况下更新网页，最常见的应用就是在浏览微博或图片时随着网页不断下滑新内容不断加载。<br>通过发送Ajax请求到更新网页共三个步骤：发送请求、解析内容和渲染网页。<br>Ajax的发送实际上是由JavaScript编写的，实际上动态网页的编写多由JS来实现。而我们只需了解Ajax的基本知识，在编写Ajax方面无要求，关键是能看懂并分析Ajax请求，因为我们要做的就是提取Ajax请求中我们所需要的信息。</p>
 
       
     </div>
@@ -181,7 +184,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
+      &copy; 2019 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

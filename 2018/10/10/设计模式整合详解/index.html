@@ -7,17 +7,17 @@
   
   <title>设计模式整合详解 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类（1）简单工厂模式：简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else">
+  <meta name="description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，保证客户端中不会出现任何实际产品类的类名或构造方法。（1）简单工厂模式：简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else或sw">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式整合详解">
 <meta property="og:url" content="http://yoursite.com/2018/10/10/设计模式整合详解/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类（1）简单工厂模式：简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else">
+<meta property="og:description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，保证客户端中不会出现任何实际产品类的类名或构造方法。（1）简单工厂模式：简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else或sw">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-06T11:13:02.454Z">
+<meta property="og:updated_time" content="2018-11-15T17:56:00.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式整合详解">
-<meta name="twitter:description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类（1）简单工厂模式：简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else">
+<meta name="twitter:description" content="1，工厂模式：简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，保证客户端中不会出现任何实际产品类的类名或构造方法。（1）简单工厂模式：简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else或sw">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -86,12 +86,101 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1，工厂模式：<br>简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，在工厂模式中，工厂类用于提供给用户接口，原用于创建对象的类<br>（1）简单工厂模式：<br>简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else或switch-case来筛选。<br>代码：<br>public interface Shape {        //所有产品类的公共接口<br>   void draw();<br>}<br>public class Rectangle implements Shape {        //第一个产品类</p>
+        <p>1，工厂模式：<br>简介：使用工厂模式，可以将实例对象的创建从客户端代码中抽离出来，使客户避免接触核心代码，降低了耦合度。工厂模式中所有实例对象的创建将由工厂类负责（不同种类的工厂模式的工厂类写法也不同），客户端中用户将使用工厂类创建对象，保证客户端中不会出现任何实际产品类的类名或构造方法。<br>（1）简单工厂模式：<br>简单工厂模式在不同条件下可以创建不同的实体，即实现多态，实现方式为直接使用if-else或switch-case来筛选。<br>代码：<br>public interface Shape {        //所有产品类的公共接口<br>   void draw();<br>}<br>public class Rectangle implements Shape {        //第一个产品类</p>
 <p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Rectangle::draw() method.”);<br>   }<br>}<br>public class Square implements Shape {            //第二个产品类</p>
 <p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Square::draw() method.”);<br>   }<br>}<br>public class Circle implements Shape {            //第三个产品类</p>
 <p>   @Override<br>   public void draw() {<br>      System.out.println(“Inside Circle::draw() method.”);<br>   }<br>}<br>public class ShapeFactory {                        //工厂类（根据不同的参数创建不同的实例）</p>
-<p>   //使用 getShape 方法获取形状类型的对象<br>   public Shape getShape(String shapeType){            //简单工厂模式中，工厂类只有一个，写法是让用户输入指定种类的参数，用switch-case语句来确定创建的对象（产品）实例<br>      if(shapeType == null){<br>         return null;<br>      }<br>      if(shapeType.equalsIgnoreCase(“CIRCLE”)){<br>         return new Circle();                        //工厂类创建产品时直接return new对象，而非继承，符合合成复用原则<br>      } else if(shapeType.equalsIgnoreCase(“RECTANGLE”)){<br>         return new Rectangle();<br>      } else if(shapeType.equalsIgnoreCase(“SQUARE”)){<br>         return new Square();<br>      }<br>      return null;<br>   }<br>}<br>从以上代码中我们可以看出，工厂模式的实现步骤为：1，创建公共接口。2，创建各个实例类，均继承公共接口。3，创建工厂类，实现根据不同参数创建不同实例（多态）。<br>简单工厂模式优点：将公共接口，实例类，工厂类分开，提高了内聚，降低了耦合。<br>简单工厂模式缺点：当需要添加新产品时需要修改工厂类（违背开闭原则），代码灵活性差。</p>
-<p>（2）工厂方法模式：<br>工厂方法模式：将简单工厂模式中的工厂类分为一个公共工厂接口和多个具体工厂类，所有具体工厂类均继承工厂接口，每个具体工厂类负责创建一种产品（即细化了原工厂类的功能，更符合单一职责原则）。</p>
+<p>   //使用 getShape 方法获取形状类型的对象<br>   public Shape getShape(String shapeType){            //简单工厂模式中，工厂类只有一个，写法是让用户输入指定种类的参数，用switch-case语句来确定创建的对象（产品）实例<br>      if(shapeType == null){<br>         return null;<br>      }<br>      if(shapeType.equalsIgnoreCase(“CIRCLE”)){<br>         return new Circle();                        //工厂类创建产品时直接return new对象，而非继承，符合合成复用原则<br>      } else if(shapeType.equalsIgnoreCase(“RECTANGLE”)){<br>         return new Rectangle();<br>      } else if(shapeType.equalsIgnoreCase(“SQUARE”)){<br>         return new Square();<br>      }<br>      return null;<br>   }<br>}<br>客户端：<br>ShapeFactory s=new ShapeFactory();<br>Shape shape=s.getShape(“CIRCLE”);<br>shape.draw();<br>从以上代码中我们可以看出，工厂模式的实现步骤为：1，创建公共接口。2，创建各个实例类，均继承公共接口。3，创建工厂类，实现根据不同参数创建不同实例（多态）。<br>简单工厂模式优点：将公共接口，实例类，工厂类分开，提高了内聚，降低了耦合避免用户直接接触构造类。<br>简单工厂模式缺点：当需要添加新产品时需要修改工厂类（违背开闭原则），代码灵活性差。</p>
+<p>（2）工厂方法模式：<br>工厂方法模式：将简单工厂模式中的工厂类分为一个公共工厂接口和多个具体工厂类，所有具体工厂类均继承工厂接口，每个具体工厂类负责创建一种产品（即将一个工厂类变为一个工厂接口与多个具体工厂类，细化了原工厂类的功能，更符合单一职责原则），<br>即建立一个工厂接口，让其子类自己决定创建何种对象（产品），这样需要创建新产品时只需创建新的工厂类即可，避免了在原工厂类或工厂接口上进行修改。<br>代码：<br>产品接口：<br>public interface ICar<br>{<br>    void GetCar();<br>}<br>具体产品类：<br>1，跑车类：<br>public class SportCar implements ICar<br>{<br>    public void GetCar()<br>    {<br>        Console.WriteLine(“生产一辆跑车。”);<br>    }<br>}<br>2， 吉普车类：<br>public class JeepCar implements ICar<br>{<br>    public void GetCar()<br>    {<br>        Console.WriteLine(“生产一辆吉普车。”);<br>    }<br>}<br>3，掀背车类：<br>public class HatchbackCar implements ICar<br>{<br>    public void GetCar()<br>    {<br>        Console.WriteLine(“生产一辆掀背车。”);<br>    }<br>}<br>工厂接口：<br>public interface IFactory<br>{<br>    ICar CreateCar();<br>}<br>具体工厂类：<br>1，跑车工厂类：<br>public class SportFactory implements IFactory<br>{<br>    public ICar CreateCar()<br>    {<br>        return new SportCar();<br>    }<br>}<br>2，吉普车工厂类：<br>public class JeepFactory implements IFactory<br>{<br>    public ICar CreateCar()<br>    {<br>        return new JeepCar();<br>    }<br>}<br>3，掀背车工厂类：<br>public class HatchbackFactory implements IFactory<br>{<br>    public ICar CreateCar()<br>    {<br>        return new HatchbackCar();<br>    }<br>}<br>客户端：<br>IFactory i=new JeepFactory();<br>ICar c=i.CreateCar();<br>c.GetCar();<br>在这里，有些同学可能有疑问：为什么之前简单工厂类中有switch进行选择创建何种对象，而工厂方法模式中的工厂类却没有选择的功能了？<br>这是因为，选择确认用户需要创建何种对象，本就不是工厂类的事，工厂类只需负责创建各种对象，只不过简单工厂模式的工厂类耦合程度较高，未将各种对象的创建分离（违背了单一职责原则），不得已需要进行选择。<br>（3）抽象工厂模式：<br>抽象工厂模式：以上两种工厂模式只能解决对于单一产品的生产，如果我们想要生产出产品的组合的话，就需要用到抽象工厂模式，它用于生产多种产品的组合，<br>简单来说，相比于工厂方法模式，抽象工厂模式就是讲一个产品接口变为多个产品接口，增加了产品的种类，工厂类所生产的产品种类也变成了多种。<br>抽象产品接口：<br>    /// <summary><br>    /// 抽象车接口<br>    /// </summary><br>    public interface ICar<br>    {<br>        /// <summary><br>        /// 车的类型属性<br>        /// </summary><br>        String Type；</p>
+<pre><code>    void getType();
+}
+
+/// &lt;summary&gt;
+/// 抽象背包接口
+/// &lt;/summary&gt;
+public interface IBackpack
+{
+    /// &lt;summary&gt;
+    /// 包的颜色属性
+    /// &lt;/summary&gt;
+    String Color;
+
+    void getColor();
+}
+</code></pre><p>具体产品类：<br>    /// <summary><br>    /// 跑车<br>    /// </summary><br>    public class SportCar implements ICar<br>    {</p>
+<pre><code>    /// &lt;summary&gt;
+    /// 重写接口的方法
+    /// &lt;/summary&gt;
+    String Type=&quot;跑车&quot;;
+
+    public void getType()
+    {
+        return this.Type;
+    }
+}
+
+/// &lt;summary&gt;
+/// 吉普车
+/// &lt;/summary&gt;
+public class JeepCar implements ICar
+{
+
+    /// &lt;summary&gt;
+    /// 重写接口的方法
+    /// &lt;/summary&gt;
+    String Type=&quot;吉普车&quot;;
+
+    public void getType()
+    {
+        return this.Type;
+    }
+}
+
+/// &lt;summary&gt;
+/// 蓝色背包
+/// &lt;/summary&gt;
+public class BlueBackpack implements IBackpack
+{
+    /// &lt;summary&gt;
+    /// 重写基类的Color属性
+    /// &lt;/summary&gt;
+    String Color=&quot;蓝色&quot;;
+
+    public void getColor()
+    {
+        return this.Color;
+    }
+}
+
+/// &lt;summary&gt;
+/// 红色背包
+/// &lt;/summary&gt;
+public class RedBackpack implements IBackpack
+{
+    /// &lt;summary&gt;
+    /// 重写基类的Color属性
+    /// &lt;/summary&gt;
+    String Color=&quot;红色&quot;;
+
+    public void getColor()
+    {
+        return this.Color;
+    }
+}
+</code></pre><p>抽象工厂接口：<br>    /// <summary><br>    /// 抽象工厂接口：<br>    /// </summary><br>    public implements IFactory<br>    {<br>        /// <summary><br>        /// 抽象方法： 创建一辆车<br>        /// </summary><br>        /// <returns></returns><br>        ICar CreateCar();</p>
+<pre><code>    /// &lt;summary&gt;
+    /// 抽象方法： 创建背包
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    IBackpack CreateBackpack();
+}
+</code></pre><p>具体工厂类：<br>    /// <summary><br>    /// 蓝色背包与吉普车的产品组合<br>    /// </summary><br>    public class Factory implements IFactory<br>    {<br>        public ICar CreateCar()<br>        {<br>            return new JeepCar();<br>        }</p>
+<pre><code>    public IBackpack implements CreateBackpack()
+    {
+        return new BlueBackpack();
+    }
+}
+</code></pre><p>客户端：<br>IFactory i=new Factory();<br>ICar c=i.CreateCar();<br>IBackpack b=i.CreateBackpack();<br>System.out.println(c.getType());<br>System.out.println(b.getColor());</p>
 <p>2,单例模式：<br>单例模式可以保证在JVM中只有一个该类只有一个实例存在，可以避免重复和频繁创建对象，减少系统开销且</p>
 
       
@@ -186,7 +275,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
+      &copy; 2019 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
